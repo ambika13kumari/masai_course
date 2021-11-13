@@ -1,0 +1,22 @@
+{
+  "name": "masai_course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "abc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ambika13kumari/masai_course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ambika13kumari/masai_course/issues"
+  },
+  "homepage": "https://github.com/ambika13kumari/masai_course#readme",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

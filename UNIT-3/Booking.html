@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tatkal Booking System</h1>
+    <button onclick="checkAvailablity()">Check Availablity</button>
+    
+</body>
+<script>
+    let MtoG = ["Dhoni", "Kohli", "Alan", "Groot", "Jethalal", "Shaktiman", "Mr Been", "Bhvan Bam"];
+
+    let PtoG = ["Dhoni", "Kohli", "Alan", "Groot", "Jethalal", "Shaktiman", "Mr Been", "Bhvan Bam"];
+
+    async function checkAvailablity() {
+        let promise = new Promise (function(resolve, reject) {
+            setInterval (function() {
+                if (BtoG.length === 4) {
+                    resolve (`BtoG is available`);
+                } else if (MtoG.length === 4) {
+                    resolve(`MtoG is available`); 
+                } else if (`PtoG.length === 4`){
+                    resolve(`PtoG is available`);
+                }
+            }, 1000);
+    });
+
+    let res = await promise;
+    console.log("res:", res);
+    }
+    
+    function cancelTicket(){
+        //cancelltion speed should be random
+    }
+
+    let cancelltion_speed1 = Math.round(Math.random() * 5); // 1
+    let cancelltion_speed2 = Math.round(Math.random() * 5); // 2
+    let cancelltion_speed2 = Math.round(Math.random() * 5); // 3
+
+    setTimeout(function (){
+        BtoG.pop();
+    }, cancelltion_speed1 * 1000);
+
+    setTimeout(function() {
+        MtoG.pop();
+    }, cancelltion_speed2 * 1000);
+
+    setTimeout(function() {
+        PtoG.pop();
+    }, cancelltion_speed3 * 1000);
+
+    console.log(BtoG, MtoG, PtoG);
+
+
+let interval = setInterval(cancelTicket, 2000);
+
+</script>
+</html>

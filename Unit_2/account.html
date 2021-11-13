@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+          box-sizing: border-box
+        }
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width:500px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border:1px solid black;
+  border-radius: 5px;
+  background: #ffffff;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: rgb(255, 255, 255);
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: rgb(10, 10, 10);
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.new-account{
+  font-family:Montserrat,sans-serif;
+  padding: 15px 20px;
+  font-size:16px;
+}
+.create-account{
+  padding:13px 15px 11px;
+  width:350px;
+  cursor: pointer;
+  background-color: #383E47;
+  color: #EA3852;
+}
+label{
+  font-family: Poppins,sans-serif;
+  font-size:12px;
+}
+em{
+  color: #d20000;
+}
+svg{
+  height: 10px;
+}
+</style>
+
+</head>
+<body>
+  <div>
+    <ul class="breadcrumb">
+      <li class="item">
+          <a href="/" aria-label="home">Home</a>
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 478.448 478.448"><g><g><polygon points="131.659,0 100.494,32.035 313.804,239.232 100.494,446.373 131.65,478.448 377.954,239.232"></polygon></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+
+      </li>
+      
+          <li class="item">
+              <span>Create Account</span>
+              
+
+          </li>
+  </div>
+    <form action="action_page.php">
+        <div class="container">
+          <h2>CREATE ACCOUNT</h2>
+          <div style="background-color: #F7F7F7 ;width:500px ; border-radius:5px">
+            <div class="new-account"> CREATE A NEW ACCOUNT
+          </div>
+        </div>
+        <br>
+          <label for="first name"><b>First Name</b><em>*</em></label><br>
+          <input type="text" placeholder="Enter First Name" name="first name" id="first name" required><br>
+          <label for="last name"><b>Last Name<em>*</em></label><br>
+          <input type="text" placeholder="Enter Last Name" name="last name" id="last name" required><br>
+
+      
+          <label for="email"><b>Email</b><em>*</em></label><br>
+          <input type="text" placeholder="Enter Email" name="email" id="email" required><br>
+      
+          <label for="psw"><b>Password</b><em>*</em></label><br>
+          <input type="password" placeholder="Enter Password" name="psw" id="psw" required><br>
+          <hr>
+      
+          <input type="submit" value="CREATE AN ACCOUNT" class="create-account">
+        </div>
+      </form>
+    
+</body>
+</html>

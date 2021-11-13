@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function sum(x , y) {
+        //     var z = x + y 
+        //     return z 
+        //     //console.log(z)
+        // }
+        
+        // var x = sum(10,10) + 10  //10 +10 + 10
+        // console.log(x)
+
+        // var x = sum(1 , 2)
+        // console.log(x)
+
+
+//         function square(x) {
+//             var z = x**2
+//             //return z 
+//             console.log(z)
+//         }
+
+//        var x = square(4) + 10
+//        console.log(x)
+
+
+
+//setinterval , settimeout
+
+    // setTimeout(function(){
+        
+    //     var z = 2 * 3
+    //     console.log(z)
+    // }, 5000);
+
+    // console.log("i am multiplying the numbers..wait moment")
+
+//  var x  =setInterval(() => {
+//     console.log(2)
+// }, 2000);
+
+// clearInterval(x)
+
+
+// var person = {
+//     name : "Prashant",
+//     age : 25,
+//     height : 5.8,
+//     gender : "male",
+//     myname : function(){
+//         console.log(person.name + person.age)
+//     }
+// }
+// 2 ways to take out the value from object 
+
+//1. dot notation
+//console.log(person.name)  //var x =person.name
+
+
+//2. bracket notation
+//console.log(person["age"])
+
+//console.log('myname:', myname)
+//console.log('person:', person)
+
+//person.myname()
+
+
+/* --------------------------------------- THIS ------------------------------------------------- */
+
+
+// var person = {
+//     name : "Prashant",
+//     age : 25,
+//     height : "5'8",
+//     gender : "male",
+//     myname : function(){
+//         console.log(this.name +" " + this.height)
+//     }
+// }
+
+// person.myname()
+
+
+/* ------------------------------object constructors --------------------------------------  */
+// function Person( name , age ,h , g) {
+
+//     this.NAME = name ;
+//     this.AGE = age ;
+//     this.HEIGHT = h ;
+//     this.GENDER = g ;
+// } // this is my prototype or blueprint wihch i am going to use further
+
+// var person1 = new Person("babu" , "23" , "5'8 " , "male")
+
+// var person2 = new Person("ambika" , "28" , "5" , "female" )
+
+// console.log(person2)
+
+// console.log('person:', person1)
+
+
+
+//var person = {
+  //  name : "Prashant",
+    //age : 25,
+    //height : "5'8",
+    //gender : "male",
+    //myname : function(){
+      //  console.log(this.name +" "+ this.height) // this.name is same as person.name and this.height is same as person.height
+    //}
+//}
+//person.myname()
+
+
+// console.log(person.name);
+// console.log(person["age"]);
+ 
+
+/* arr1 = ["alpha" , "beta" , "gamma "  , "theta " , "delta"]
+ 
+
+console.log(arr1[1]) */ 
+
+var goods = {
+    furniture : "table",
+    grains : "wheat",
+    toy : "areroplane",
+    books : "IT",
+    language : "javascript",
+
+    mygood : function(){
+        //console.log(this.toy +" "+ this.language);
+        return(this.toy +" "+ this.language);
+    }
+    }
+
+//goods.mygood()
+console.log(goods.mygood())
+
+</script>
+</body>
+</html>

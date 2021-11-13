@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id ="change_color">THROW Dice</button>
+    <p id="out">A random number with color will be displayed here</p>
+</body>
+<script>
+
+function random(){
+  return Math.floor(Math.random()*6 +1);
+}
+
+var btn= document.getElementById("change_color")
+btn.addEventListener("click" , change)
+
+
+function change(){
+    var output =document.getElementById("out")
+    output.style.fontSize="100px"
+    output.style.border="2px solid black"
+    output.style.backgroundColor="grey"
+    var val =random()
+    console.log(val)
+
+    if (val==6){
+        output.textContent = val
+        output.style.color = "green"
+        
+    }
+    else if (val==1){
+        output.textContent=val
+        output.style.color="red"
+    }
+    else{
+        output.textContent=val
+        output.style.color= "yellow"
+    }
+}
+
+</script>
+</html>

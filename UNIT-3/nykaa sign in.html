@@ -1,0 +1,930 @@
+<html><head><base href="/"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Buy Cosmetics Products &amp; Beauty Products Online in India at Best Price | Nykaa</title><link rel="icon" href="//www.nykaa.com/media/favicon/default/nykaa_favicon_a.png" type="image/x-icon"><link rel="shortcut icon" href="//www.nykaa.com/media/favicon/default/nykaa_favicon_a.png" type="image/x-icon"><meta name="keywords" content="Nykaa, Nyka, Nykaa.com, Nika, Nyyka, Nyka.com, Nykaa online, Nykaa India, buy cosmetics online, cosmetics online, buy beauty products online, beauty products online, buy cosmetics india, buy beauty products india"><meta name="description" content="Buy cosmetics &amp; beauty products online from Nykaa, the online shopping beauty store. Browse makeup, health products &amp; more from top beauty brands. ✔ free shipping* ✔ Cash on Delivery"><meta name="author" content="NykaaFrontendTeam"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><!-- inject:nykTrackingGlobal:js --><script type="text/javascript" id="__ta_ces">// Write your javascript code here
+    var visitor_id = _taq.vid;
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+     
+    _taq.handlers.push(['ready', function(){
+        _taq.events.push(['page_view',{
+        'url':location.href,
+        'device':_taq.is_mobile ? 'mobile' : 'web'
+        }]);
+    }]);
+    
+    console.log('custom event script loaded by nykaa v4');
+    _taq.handlers.push(['event','product_view',function(ev){
+      ev[1]['prod_url']='http://www.nykaa.com'+location.pathname;
+      return ev;
+    }]);
+    
+    _taq.handlers.push(['event','cart_add',function(ev){
+      var body='';
+      var $=_taq.$;
+      var cart_subtotal=0;
+      if(window.sonar_basket.products){
+      for(i=0;i<window.sonar_basket.products.length;i++){
+        cart_subtotal=cart_subtotal+Math.round(parseFloat(window.sonar_basket.products[i]['amount'])/(1-0.1111));
+        }
+      var shipping_chrg=0;
+      var cart_total=cart_subtotal;
+      if(cart_subtotal<500){
+        shipping_chrg=50;
+        cart_total=cart_subtotal+shipping_chrg;
+      }
+      else{
+        shipping_chrg='Free';
+      }
+      $('#sliding-cart-form > table > tbody > tr').each(function(i,e){
+        var imgurl=$(e).find('td > a > img').attr('src');
+        var prodname=$(e).find('.product_detail > a > span').text().trim();
+        var produrl=$(e).find('.product_detail > a').attr('href');
+        var prodqty=parseInt($(e).find('.product_detail > .product_qty_blck > input').val());
+        var price = $(e).find('.last_col > span > .price_block').text().trim();
+        if(price!="Free"){
+            price=parseFloat(price.replace("Rs. ","").replace(/[^0-9.]/g,"")).toFixed(2);  
+        }    
+        body=body+'<tr>'+
+          '<td align="center">'+
+              '<a href="'+produrl+'?utm_source=gamooga&utm_medium=email&utm_campaign=cartabandonment" style="display:block;"><img  style="padding:10px;" src="'+imgurl+'" width="80" height="80" alt="" ></a>'+
+          '</td>'+
+          '<td style="padding:10px;">'+
+              '<a href="'+produrl+'?utm_source=gamooga&utm_medium=email&utm_campaign=cartabandonment" style="text-decoration:none;font-size:16px; font-weight:700; color:#fc5294;">'+prodname+'</a>'+
+          '</td>'+
+          '<td align="center" style="padding:0.8em;"><b>'+prodqty+'</b></td>'+
+          '<td style="padding:0.8em;" ><b> Rs. '+price+' </b></td>'+
+          '</tr>';
+      });
+      var prod_price_str=parseFloat(ev[1]['prod_price']).toFixed(2);
+      ev[1]['prod_price']=parseFloat(prod_price_str);
+      ev[1]['cartitems']=body;
+      ev[1]['cart_subtotal']=cart_subtotal;
+      ev[1]['cart_total']=cart_total;
+      ev[1]['shipping_chrg']=shipping_chrg;
+      var img_url=ev[1]['prod_img'];
+      if(ev[1]['prod_name']=='null' || ev[1]['prod_name'] === null){
+        return false;
+      }
+      else{
+           return ev; 
+      }
+      }
+    }]);
+    
+      
+    //Email capture at guest log in of checkout page
+    if(location.pathname.indexOf('/gomage_checkout/newonepage/')>=0 || location.pathname.indexOf('/checkoutmobile')>=0){
+      _taq.$(document).on('blur','input[id="billing_email"]',function(){
+        var gmg_email=_taq.$('input[id="billing_email"]').val().trim().toLowerCase();
+        if(gmg_email.indexOf('@')>0 && gmg_email!=="" && gmg_email.indexOf('.')>0){
+          _taq.identify.push([gmg_email,function(){
+            _taq.property.push(['email',gmg_email]);
+          }]);
+        }
+      });
+    // google & facebook login at chekout pages
+        var interval=setInterval(function(){
+        if(_taq.$('#display_billing_email').text() != ""){
+        var gmg_email=_taq.$('#display_billing_email').text().trim().toLowerCase();
+        if(gmg_email.indexOf('@')>0 && gmg_email!=="" && gmg_email.indexOf('.')>0){
+          _taq.identify.push([gmg_email,function(){
+            _taq.property.push(['email',gmg_email]);
+          }]);
+        }
+           clearInterval(interval);
+        }
+       },2000);
+    }
+    
+    //news letter subscription
+    _taq.$(document).on('blur','input[id="newsletter"]',function(){
+      var gmg_newsletter=_taq.$('input[id="newsletter"]').val().trim().toLowerCase();
+      var now = new Date();
+      now=now.toString().split(' ');
+      var today=now[2]+'/'+now[1]+'/'+now[3];
+      if(gmg_newsletter.indexOf('@')>0 && gmg_newsletter!=="" && gmg_newsletter.indexOf('.')>0){
+        _taq.identify.push([gmg_newsletter,function(){
+          _taq.property.push(['email',gmg_newsletter]);
+          _taq.events.push(['newsletter',{
+            'email':gmg_newsletter,
+            'date':today
+          }]);
+        }]); 
+      }
+    });
+    
+    if(location.pathname.indexOf('/nyx-subscription')===0){
+      var $=_taq.$;
+      _taq.handlers.push(['ready',function(){
+        $(document).on('click','#submit1',function(){
+        var gmg_name=$('#search3').val();
+        var gmg_mobile=$('#search2').val();
+        var gmg_email=$('#search1').val().trim().toLowerCase();
+        _taq.property.push(['firstname',gmg_name]);
+        _taq.property.push(['mobile',gmg_mobile]);
+        if(re.test(gmg_email)){
+          _taq.identify.push([gmg_email,function(){
+            _taq.property.push(['email',gmg_email]);
+            _taq.events.push(['subscription_details',{'name':gmg_name,'mobile':gmg_mobile,'email':gmg_email}]);
+          }]);
+          }
+        });
+      }]);
+    }
+    
+    //email capture after spin the wheel
+    
+    if(location.pathname.indexOf('/spin-the-wheel')===0){
+    var $=_taq.$;
+    _taq.handlers.push(['ready',function(){
+    $(document).on('blur','#email',function(){
+    var gmg_email=$('#email').val().trim().toLowerCase();
+    _taq.identify.push([gmg_email,function(){
+        _taq.property.push(['email',gmg_email]);
+    }]);
+    });	
+    }]);
+    }
+    
+    /*Email capture in Shop n Dash Sale*/
+    if(location.pathname=='/beauty-products-shop-n-dash-sale-subs'){
+      _taq.handlers.push(['ready',function(){
+        _taq.$(document).one('click','#submit1',function(){
+          var gmg_email=_taq.$('#search1').val().trim().toLowerCase();
+          var gmg_mobile=_taq.$('#search2').val();
+          _taq.identify.push([gmg_email,function(){
+            _taq.property.push(['email',gmg_email]);
+            _taq.property.push(['mobile',gmg_mobile]);
+          }]);
+        });
+      }]);
+    }
+    // Email capture in online-sale
+    if(location.pathname=='/nykaa-online-sale-60-minutes-only-subs'){
+      _taq.handlers.push(['ready',function(){
+        _taq.$(document).one('click','#submit1',function(){
+          var gmg_email=_taq.$('#search1').val().trim().toLowerCase();
+          var gmg_mobile=_taq.$('#search2').val();
+          _taq.identify.push([gmg_email,function(){
+            _taq.property.push(['email',gmg_email]);
+            _taq.property.push(['mobile',gmg_mobile]);
+          }]);
+        });
+      }]);
+    }
+    // Login Notification
+     window.exit_notification = function(){
+         openSignUp();
+         };
+    
+    //Email Capture from Login notification
+    var setintvl = setInterval(function(){
+    if(_taq.$('#lightbox').length){
+      var $ = _taq.$;
+    $('#email').on('blur',function(){
+      var email = $('#email').val().trim().toLowerCase();
+      if (email!=='' && email!==undefined && email.indexOf('@')!=-1 && email.indexOf('.')!=-1){
+      _taq.identify.push([email,function(){
+        _taq.property.push(['email',email]);
+      }]);
+      }
+    });
+      clearInterval(setintvl);
+    }
+    }, 2000);
+    /* Web-Push registration permission- Testing
+    if (location.pathname=='/offers.html' || location.pathname=='/' ){
+     _taq.handlers.push(['ready', function(){
+       console.log('changed to https');
+            _taq.do_webpush_registration();
+     }]);
+    }*/
+    
+    /*web-push test
+    if (location.search.indexOf('gmgtest77') != -1 ){
+     _taq.handlers.push(['ready', function(){
+     if(_taq.getLSItem("webpush_status") != "registered")
+           {
+             console.log('test');
+            _taq.do_webpush_registration();
+           }
+     }]);
+    }*/
+    
+    //to close segmented notification
+    window.__slidernotif_close=function(){
+      _taq.$('#__ta_notif_frame_0').hide();
+      _taq.events.push(['slider_closed',{'-':'-'}]);
+    };
+    
+    // email capture on gift card
+    _taq.$('#giftcard_from_email').on('blur',function(){
+        var email = _taq.$('#giftcard_from_email').val();
+        if (email!=='' && email!==undefined && email.indexOf('@')!=-1 && email.indexOf('.')!=-1){
+          _taq.identify.push([email, function(){
+          _taq.property.push(['email', email]);
+           }]);
+        }
+      });  
+    
+    // email capture on contact us in cancelation of order
+    _taq.$(document).on('blur','#ticketemail',function(){
+        var email = _taq.$('#ticketemail').val();
+        if (email!=='' && email!==undefined && email.indexOf('@')!=-1 && email.indexOf('.')!=-1){
+           _taq.identify.push([email, function(){
+          _taq.property.push(['email', email]);
+           }]);
+        }
+      });  
+    // email capture on luxe letters
+    _taq.$(document).on('blur','#search1',function(){
+        var email = _taq.$('#search1').val();
+        if (email!=='' && email!==undefined && email.indexOf('@')!=-1 && email.indexOf('.')!=-1){
+         _taq.identify.push([email, function(){
+          _taq.property.push(['email', email]);
+           }]);
+        }
+      });  
+    
+    // email capture on luxury brand pages
+    _taq.$(document).on('blur','#subscription_email',function(){
+        var email = _taq.$('#subscription_email').val();
+        if (email!=='' && email!==undefined && email.indexOf('@')!=-1 && email.indexOf('.')!=-1){
+           _taq.identify.push([email, function(){
+          _taq.property.push(['email', email]);
+           }]);
+        }
+      });  
+    // Email capture on beauty-products page
+    if(location.pathname=='/beauty-products-shop-n-dash-sale-subscription'){
+      _taq.handlers.push(['ready',function(){
+        _taq.$(document).one('click','#submit1',function(){
+          var gmg_email=_taq.$('#search1').val().trim().toLowerCase();
+       if(gmg_email !="" && gmg_email != undefined && gmg_email.indexOf('@')!=-1 && gmg_email.indexOf('.')!=-1 ){
+          var gmg_mobile=_taq.$('#search2').val();
+          _taq.identify.push([gmg_email,function(){
+            _taq.property.push(['email',gmg_email]);
+            if(gmg_mobile.length ==10){
+            _taq.property.push(['mobile',gmg_mobile]);
+            }
+          }]);
+    }
+        });
+      }]);
+    }
+    
+    
+    }]);*/
+    // Email capture on hul page
+    if(location.pathname=='/hul-shop-n-dash-subscription'){
+      _taq.handlers.push(['ready',function(){
+        _taq.$(document).one('click','#submit1',function(){
+          var gmg_email=_taq.$('#search1').val().trim().toLowerCase();
+       if(gmg_email !="" && gmg_email != undefined && gmg_email.indexOf('@')!=-1 && gmg_email.indexOf('.')!=-1 ){
+          var gmg_mobile=_taq.$('#search2').val();
+          _taq.identify.push([gmg_email,function(){
+            _taq.property.push(['email',gmg_email]);
+            if(gmg_mobile.length ==10){
+            _taq.property.push(['mobile',gmg_mobile]);
+            }
+          }]);
+    }
+        });
+      }]);
+    }
+    
+    
+    var mobileHTML = `<div id="gmg_wp_notif" style="width: 350px;left: 1%;z-index:9999;position: fixed;box-shadow:1px 1px
+    
+    5px rgba(0,0,0,0.2); bottom:0px; background:#fff; padding: 10px;border: 0px solid #ccc; color: #343434;
+    
+    font: normal 16px/1.5 RedHotels, Arial, sans-serif, Arial, Helvetica, Tahoma;">
+    
+        <div style="overflow:
+    
+    hidden;margin: 0 auto;">
+    
+            <div style="display: inline-block;width: 80px;vertical-align: middle;height:
+    
+    80px;background:;border-radius: 10px;margin-right: 2%;box-sizing: border-box;">
+    
+                <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/1a/00/70/1a0070c0-4583-fbeb-609b-5929d6611366/AppIcon-0-1x_U007emarketing-0-0-85-220-0-5.png/690x0w.jpg"
+                    height="70" width="70">
+    
+            </div>
+    
+            <div style="display: inline-block;width:
+    
+    72%;vertical-align: middle;">
+    
+                <label style="display: block;font-weight: 600;margin-bottom: 8px;font-
+    
+    size: .95em;">I spy a deal!</label>
+    
+                <span style="display: block;font-size: .75em;color:
+    
+    #666;line-height: 16px;">You are one step away from unlocking all our top deals, trend updates and exclusive offers!
+    
+                </span>
+    
+            </div>
+    
+        </div>
+    
+        <div style="text-align: right;padding-top: .5em;">
+    
+            <button onclick="javascript:hide_wp_request()" style="border: 0;background: none;text-decoration:
+    
+    underline;vertical-align: middle;font-size: .8em;margin-right: 1em;inline-size: auto; color:#716f6f;"></button>
+    <button onclick="javascript:hide_wp_request()"style="padding: .5em 0.2em;text-decoration: none;text-transform: capitalize;border: none;font-size: .8em;text-align: center;background-color: #e0e0e0;color: #fff;cursor: pointer;vertical-align: middle;">Maybe later</button>
+    
+    <button onclick="javascript:show_wp_request()"
+                style="padding: .5em 1.6em;text-decoration: none;text-transform: capitalize;border: none;border-radius: 5    ;font-size: .8em;text-align: center;background-color: #fc2779;color: #fff;cursor: pointer;vertical-align: middle;"> Sign Me Up! </button>
+    
+    
+        </div>
+    
+    </div>`;
+    var webHTML = `<div id="gmg_wp_notif" style="width: 350px;right: 37%;z-index:9999;position: fixed;box-shadow:1px 1px
+    
+    5px rgba(0,0,0,0.2); top:30px; background:#fff; padding: 10px;border: 0px solid #ccc; color: #343434;
+    
+    font: normal 16px/1.5 RedHotels, Arial, sans-serif, Arial, Helvetica, Tahoma;">
+    
+        <div style="overflow:
+    
+    hidden;margin: 0 auto;">
+    
+            <div style="display: inline-block;width: 80px;vertical-align: middle;height:
+    
+    80px;background:;border-radius: 10px;margin-right: 2%;box-sizing: border-box;">
+    
+                <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/1a/00/70/1a0070c0-4583-fbeb-609b-5929d6611366/AppIcon-0-1x_U007emarketing-0-0-85-220-0-5.png/690x0w.jpg"
+                    height="70" width="70">
+    
+            </div>
+    
+            <div style="display: inline-block;width:
+    
+    72%;vertical-align: middle;">
+    
+                <label style="display: block;font-weight: 600;margin-bottom: 8px;font-
+    
+    size: .95em;">I spy a deal!</label>
+    
+                <span style="display: block;font-size: .75em;color:
+    
+    #666;line-height: 16px;">You are one step away from unlocking all our top deals, trend updates and exclusive offers!
+    
+                </span>
+    
+            </div>
+    
+        </div>
+    
+        <div style="text-align: right;padding-top: .5em;">
+    
+            <button onclick="javascript:hide_wp_request()" style="border: 0;background: none;text-decoration:
+    
+    underline;vertical-align: middle;font-size: .8em;margin-right: 1em;inline-size: auto; color:#716f6f;"></button>
+    
+    <button onclick="javascript:show_wp_request()"
+                style="padding: .5em 1.6em;text-decoration: none;text-transform: capitalize;border: none;border-radius: 5    ;font-size: .8em;text-align: center;background-color: #fc2779;color: #fff;cursor: pointer;vertical-align: middle;">Sign Me Up! </button>
+            <button onclick="javascript:hide_wp_request()"
+                style="padding: .5em 0.2em;text-
+    
+    decoration: none;text-transform: capitalize;border: none;font-size: .8em;text-align: center;background-color: #e0e0e0;color: #fff;cursor: pointer;vertical-align: middle;">Maybe later</button>
+    
+    
+        </div>
+    
+    </div>`;
+    
+    var LoadDeniedHtml = `<style type="text/css">*{margin:0;padding:0;}@font-face{font-family:'SourceSansProSemibold';src:url('https://www.nykaa.com/skin/frontend/nykaa/theme202/css/font/SourceSansPro/SourceSansPro-Semibold.eot');src:url('https://www.nykaa.com/skin/frontend/nykaa/theme202/css/font/SourceSansPro/SourceSansPro-Semibold.eot?#iefix') format('embedded-opentype'),url('https://www.nykaa.com/skin/frontend/nykaa/theme202/css/font/SourceSansPro/SourceSansPro-Semibold.ttf')format('truetype'),url('https://www.nykaa.com/skin/frontend/nykaa/theme202/css/font/SourceSansPro/SourceSansPro-Semibold.svg#SourceSansPro-Semibold') format('svg');font-weight: normal;font-style: normal;}.BoxContainer{position: relative; overflow: hidden; width:40%;}a.CloseBtn {position: absolute;    top: 4px;right: 3px;display: block;z-index: 2;color:#fff;font-family: 'SourceSansPro-Semibold';font-size: 15px;text-decoration: none; }.gmg_arrow-up {width: 0; height: 0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-bottom: 10px solid #fc2779;position: relative;left: 6%;top: 1px;}.posRelative{position: relative;}a.posRelative{display: block; text-decoration: none;}	.Notification{width: 90%;background-color: #fc2779;top: 0;display: table-cell;padding: 2%;	}.Notification a{color: #fff; font-family: 'SourceSansPro-Semibold';font-size: 13px; font-weight: 600; letter-spacing: 0.3px;}</style><div class="BoxContainer" style="position: fixed;top: 0;z-index: 9999;"><div class="gmg_arrow-up"></div><a href="" class="CloseBtn">x</a><div class="Notification"><a class="posRelative" href="">If you change your mind, click the lock to give <span>Chrome</span> permission to send you desktop notifications.</a></div></div>`;
+    
+    _taq.handlers.push(["event","started session",
+      function(ev) {
+        var checkMayBeLater = _taq.getLSItem("mayBeLater");
+        var checkLoadDenied = _taq.getLSItem("isDenied");
+        if (checkMayBeLater == "true") {
+          _taq.removeLSItem("mayBeLater");
+        }
+        if (checkLoadDenied == "true") {
+          _taq.removeLSItem("isDenied");
+        }
+    
+        return ev;
+      }
+    ]);
+
+    _taq.handlers.push(["ready",function() {
+      if(location.search.indexOf('ptype=product') == -1 && location.href.indexOf('/p/') == -1){
+        var x = JSON.parse(_taq.getLSItem('sess_data'));
+        if(typeof(Notification) != 'undefined' &&  x["IP"] != "183.82.114.14" ){
+          var checkMayBeLater = _taq.getLSItem("mayBeLater");
+          var ChromePermission = Notification.permission == "denied" ? true : false;
+          var checkLoadDenied = _taq.getLSItem("isDenied");
+          var ssdata = JSON.parse(_taq.getLSItem("sess_data"));
+          var baseOs = ssdata["base browser"];
+          if (checkMayBeLater != "true" && baseOs != "iOS") {
+          }
+          if (ChromePermission && baseOs != "iOS" && checkLoadDenied != "true") {
+            if(location.href.includes("test_gmg_webpush")){
+              DeniedNotifShow();
+            }
+          }
+        }
+      }
+    }]);
+    
+    function DeniedNotifShow() {
+      _taq.is_incognito(function(is_incognito) {
+        if (is_incognito == false && _taq.is_mobile == false) {
+          _taq.$("body").append(LoadDeniedHtml);
+          _taq.setLSItem("isDenied", "true");
+          $(".CloseBtn").click(function() {
+            pushEvent('wp_bcustom_close', {});
+            $(".BoxContainer").hide();
+          });
+        }
+      });
+    }
+    
+    function RenderSoftWebpush(timeToShow) {
+      var loadHTML = _taq.is_mobile ? mobileHTML : webHTML;
+      var ChromePermission = Notification.permission == "denied" ? false : true;
+      var gamoogaPermission =
+        _taq.getLSItem("webpush_status") == "registered" ? false : true;
+      var isDenied = _taq.getLSItem("webpush_status") == "denied" ? false : true;
+      var cros_per = ChromePermission === true || isDenied === false ||(ChromePermission && gamoogaPermission)? true : false;
+      var permission =timeToShow && ChromePermission && gamoogaPermission && cros_per;
+      _taq.is_incognito(function(is_incognito) {
+        if (is_incognito == false && permission) {
+          _taq.$("body").append(loadHTML);
+          pushEvent("wp_show_custom", {});
+        }
+      });
+    }
+    
+    function show_wp_request() {
+        _taq.do_webpush_registration();
+        _taq.$('#gmg_wp_notif').hide();
+        pushEvent('wp_allowed_custom', {});
+    }
+    
+    function hide_wp_request() {
+        _taq.setLSItem('mayBeLater', "true");
+        _taq.$('#gmg_wp_notif').hide();
+        pushEvent('wp_later_custom', {});
+    }
+    
+    function pushEvent(event, data) {
+        data['url'] = location.href;
+        data['device'] = (_taq.is_mobile ? 'Mobile' : 'Web');
+        _taq.events.push([event, data]);
+    }
+    
+    _taq.setCustomActionCallback(function(name,data){
+      var fin_data = data ? JSON.parse(data) : '-';
+      if(name == 'wp_optin'){
+        console.log('Entered in to wp_optin Function');
+        if(Notification.permission != "denied" && _taq.getLSItem("webpush_status") != "registered"){
+          console.log('Default permissions triggered');
+          _taq.do_webpush_registration();
+        }
+      }
+      if(name == 'Cust_wp'){
+        console.log('Entered in to custom Action Function cust_wp');
+        if(typeof(Notification) != 'undefined'){
+          var checkMayBeLater = _taq.getLSItem("mayBeLater");
+          var ssdata = JSON.parse(_taq.getLSItem("sess_data"));
+          var baseOs = ssdata["base browser"];
+          var ChromePermission = Notification.permission;
+          var gamoogaPermission = _taq.getLSItem("webpush_status");
+          if(ChromePermission != "denied" && baseOs != "iOS" && gamoogaPermission != "denied"){
+            console.log('Customwp HTML triggered');
+            if(_taq.is_mobile){
+            
+            }else{
+              _taq.$("body").append(webHTML);
+              pushEvent("wp_show_custom", {});
+            }
+          }
+        }
+      }
+      if(name == 'cart_webnotif'){
+        console.log('Entered in to custom Action Function cart_webnotif');
+        var utm_source = fin_data['utm_source'] ? fin_data['utm_source'] : 'google';
+        var utm_medium = fin_data['utm_medium'] ? fin_data['utm_medium'] : 'cpc';
+        var utm_campaign = fin_data['utm_campaign'] ? fin_data['utm_campaign'] : 'gamooga_cart';
+        var display_time = fin_data['display_time'] ? parseInt(fin_data['display_time']) : 20;
+        var addi_display_time = fin_data['addi_display_time'] ? parseInt(fin_data['addi_display_time']) : 10;
+        var content = fin_data['content'] ? fin_data['content'] : 'Your cart is missing you';
+        //console.log(utm_source,utm_medium,utm_campaign,display_time,addi_display_time,content);
+        handleGamoogaCartNotification(content, {
+          GAMOOGA_NOTIFICATION_UTM_SOURCE: utm_source,
+          GAMOOGA_NOTIFICATION_UTM_MEDIUM: utm_medium,
+          GAMOOGA_NOTIFICATION_UTM_CAMPAIGN: utm_campaign,
+          GAMOOGA_NOTIFICATION_NOTIFICATION_DISPLAY_TIME_IN_SEC: display_time,
+          GAMOOGA_NOTIFICATION_NOTIFICATION_ADDITIONAL_DISPLAY_TIME_IN_SEC: addi_display_time,
+        });
+      }
+    });
+    
+    </script><script type="text/javascript" async="" src="https://www.google-analytics.com/gtm/js?id=GTM-5N7WHH7&amp;t=gtm6&amp;cid=184927058.1632815059"></script><script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/UrRmT3mBwY326qQxUfVlHu1P/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-b3tGrrJFQIPZurcFNV2vrA2u2er9PWPAKHNcMEptlkLhk70c4ZdB0G3jp+CLqqAB"></script><script async="" src="https://nykaa.verloop.io/livechat/script.min.js"></script><script src="https://connect.facebook.net/signals/config/1591183734470216?v=2.9.48&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://cdn-jp.gsecondscreen.com/static/ta.min.js" id="__ta"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-MWT2MSJ"></script><script type="text/javascript">/* global navigator, window, document, _satellite, AndroidFunction, webkit */
+    
+    function NykGlobalMethods() {}
+    NykGlobalMethods.prototype.logging = function (v) {
+      console.log('NykGlobalMethods.prototype.logging', v);
+    };
+    NykGlobalMethods.prototype.isAndroid = function () {
+      try {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return userAgent.match(/nykaa-android/i);
+      } catch (e) {
+        return null;
+      }
+    };
+    
+    NykGlobalMethods.prototype.isIos = function () {
+      try {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return userAgent.match(/nykaa-ios/i);
+      } catch (e) {
+        return null;
+      }
+    };
+    
+    NykGlobalMethods.prototype.isMsite = function () {
+      try {
+        return (window.__INITIAL_PARAMS__.eq === 'mobile');
+      } catch (e) {
+        return false;
+      }
+    };
+    
+    NykGlobalMethods.prototype.isDesktop = function () {
+      try {
+        return (window.__INITIAL_PARAMS__.eq === 'desktop');
+      } catch (e) {
+        return false;
+      }
+    };
+    
+   
+    NykGlobalMethods.prototype.doTrackIOS = function (actionName, pageName, analyticsKeyValuePare) {
+      try {
+        const params = typeof analyticsKeyValuePare === 'string' ? analyticsKeyValuePare : JSON.stringify(analyticsKeyValuePare);
+        setTimeout(() => {
+          window.location.href = 'nykaaioslanding://doTrack?actionName=' + actionName + '&pageName=' + pageName + '&params=' + params;
+        }, 2000);
+      } catch (e) {
+        NykGlobalMethods.prototype.logging(e);
+      }
+    };
+    
+    
+    NykGlobalMethods.prototype.doTrackAndroid = function (actionName, pageName, analyticsKeyValuePare) {
+      try {
+        const param = typeof analyticsKeyValuePare === 'string' ? analyticsKeyValuePare : JSON.stringify(analyticsKeyValuePare);
+        AndroidFunction.doTrack(actionName, pageName, param);
+      } catch (e) {
+        NykGlobalMethods.prototype.logging(e);
+      }
+    };
+    
+    NykGlobalMethods.prototype.isNykaaMan = function () {
+      try {
+        const { __INITIAL_PARAMS__ : { catalog_tag_filter } } = window; // ES6 Nested Object Destructuring. Formal example:  const { OuterKey : { InnerKeyToExtract: NewVariableNameInCurrentScope } } = objToExtractDataFrom;
+        return ( catalog_tag_filter === 'men');
+      } catch (e) {
+        NykGlobalMethods.prototype.logging(e);
+      }
+      return false;
+    };
+    
+    NykGlobalMethods.prototype.doTrackWeb = (directCallRuleName) => {
+      try {
+        _satellite.track(directCallRuleName);
+      } catch (e) {
+        NykGlobalMethods.prototype.logging(e);
+      }
+    };
+    
+    NykGlobalMethods.prototype.redirectToOrderDetailPage = (orderId, clickSrc = '') => {
+      const ORDER_DETAIL_URL_TEMPLATE = '/sales/order/view/order_id/v2/{id}/?ptype=orderDetail&orderId={id}';
+      if (orderId) {
+        let url = ORDER_DETAIL_URL_TEMPLATE.replace(/{id}/g, orderId);
+        if (clickSrc !== '' && clickSrc !== null) {
+          const srcparam = '&source='+clickSrc //  for clickSource if clicked on rating-----scrollOption
+          url = url.concat(srcparam);
+        }
+        window.location.href = `${window.location.origin}${url}`; // redirection to the orderId appended url
+      }
+    };</script><!-- endinject --> <link rel="preload" as="script" href="https://www.google.com/recaptcha/api.js?render=6LcFevoUAAAAACEdtUxI8JKtDeA1ssM9rrw4B0U5">  <script type="text/javascript">window.__PRELOADED_STATE__ = {"appLevelReducer":{"userId":-1,"pageType":null,"productId":null,"productSku":null,"categoryId":null,"selectedStore":"","metaData":{"productPage":{"title":"Product_Name: Buy Product_Name Online at Best Price in India | Nykaa","description":"Product_Name Online: Buy Product_Name at best price from Nykaa. Check out Product_Name review. ✓COD ✓Free Shipping"},"brandPage":{"title":"Brand_Name - Buy Brand_Name Products Online at Best Price | Nykaa","description":"Brand_Name products: Buy Brand_Name products online at best price on Nykaa. Browse from a wide range of Brand_Name authentic products online at low price. ✓COD ✓Free shipping ✓Original Products"}},"storeConfig":{"status":false,"backToBeautyText":"Nykaa Main Store","exploreMoreStores":"https://images-static.nykaa.com/media/explore_stores_v5.png","stores":[]}},"deliveryOptionReducer":{"pinCode":null,"pinCodeMessages":null},"footerReducer":{"dummyData":"FOOTER: This is a dummy string defined in initial state of footerReducer.","footerLinks":[]},"headerReducer":{"categories":[]},"navigationReducer":{"categories":null,"brands":null,"desktopCategories":null,"desktopBrand":null,"beautyAdvice":null,"nykaaLogo":null,"popups":null,"style":null,"topStrip":""},"overlayReducer":{"isOverlayActive":false},"productReducer":{"product":null,"sellers":null,"selectedVariant":null,"title":null,"outOfStockSubscriptions":[],"customersAlsoViewedProducts":null,"customersAlsoBoughtProducts":null,"productList":[],"listingPageType":null,"currentPage":1,"filter":[],"filterData":[],"selectedFilter":{},"isFilterOpen":false,"isSortModalOpen":false,"filterMap":[],"filterOn":false,"noResult":false,"shades":{},"newShades":null,"noMoreResult":false,"productCount":0,"pageTitle":"","activeSort":"","combos":[],"keyboard":false,"appliedFilterList":[],"productId":null,"proUserProductOffers":{},"offersLoading":true,"size_data":{},"variants":[]},"productQAndAReducer":{},"topBannerReducer":{"banner":[]},"reviewsAndRatingsReducer":{},"wishlistReducer":{"productIdsInWishlist":[],"products":[],"pageNumber":0},"cartReducer":{"itemCount":""},"authReducer":{"getAuthDataStatus":"LOADING","isV3Enabled":true},"backButtonCallBack":{"callBack":[]},"slidingCartReducer":{"cartData":null},"form":{},"autoSearchReducer":{"autoSuggestData":null,"trendingSearchData":null,"trendingSearchLoading":false},"searchReducer":{"searchData":{"totalFound":null,"offset":null,"updatePriceFilter":null,"stopFurtherCall":null,"filterKeys":[],"filters":[],"products":[],"filterMap":[],"didYouMean":[],"redirect":{},"bannerData":{},"uiMessage":null,"isToShowUiMessage":false,"tipTiles":[]},"loading":true},"filterReducer":{"filters":[],"loading":true,"filterMap":[],"activeSort":"popularity","selectedFilter":{},"isSortModalOpen":false,"appliedFilterList":[]},"myOrder":{"orderHistory":[],"orderDetail":{},"refundRequest":{},"refundInfo":null,"fetchRefundRequestApiStatus":null,"refundInfoApiStatus":null,"networkError":false,"requestComplete":false,"noMoreOrder":false,"networkErrorDetail":false,"requestCompleteDetail":false,"networkErrorItemsCancel":false,"cancelledItemsList":[],"pageOffset":4,"pinCodeDetails":null,"pinCodeDetailsStatus":null,"pinCodeError":null,"realTimePrice":{},"reactConfigError":null,"upsUserDetails":{},"returnExchangeReasons":{},"sendOtpResponse":{}},"homePageReducer":{},"configFlagReducer":{},"mobileCartReducer":{"couponCodeStatus":"NOT_APPLIED","paytmUserDetails":null,"paytmOTP":null,"paymentCreationInfoStatus":"LOADING","checkoutAuthScreen":"EMAIL_AVAILABILITY","isOldFreeSampleView":false},"errorModalReducer":{},"breadcrumbsReducer":{},"inventoryReducer":{},"revieveReducer":{"show":false,"unmount":false},"upiModalReducer":{"isUpiTimerModalOpen":false},"dealsOfTheDayReducer":{"dealsData":null},"allReviewsReducer":{"allReviews":null},"reviewsReducer":{"allReviews":null,"filters":[],"sort":"","childIds":[]},"proSignUpReducer":{"bulkBuyerDetail":null,"address":null,"businessAddresses":null,"personalAddresses":null,"imageUpload":null,"platform":""},"akamaiReducer":{"akamaiVistorPrioritization":{}},"optInReducer":{},"sitemap":{"error":null,"info":null},"walletReducer":{"transactionHistory":[],"getUserInfoStatus":"NOT_STARTED","getVaultParamsStatus":"NOT_STARTED","getVaultParamsWithUserDetailsStatus":"NOT_STARTED","transactionHistoryApiStatus":false,"routingHistory":{},"userConfigDetails":false},"countryReducer":{"selectedCountryInfo":null},"freeSamplesReducer":{},"verificationPageReducer":{"currentPageState":""},"pageStateReducer":{"pageStates":{}},"loginPageReducer":{"currentPageState":"","pageStateUpdateFlag":true},"registrationPageReducer":{"currentPageState":"","showLoginComponent":false},"otpVerificationReducer":{"componentState":{}},"newCartReducer":{"couponCodeStatus":"NOT_APPLIED","paytmUserDetails":null,"paytmOTP":null,"paymentCreationInfoStatus":"LOADING","isOldFreeSampleView":false,"gamoogaCartNotification":null,"isGiftCardApplied":false,"giftCard":null},"addressReducer":{"isOldFreeSampleView":false},"paymentSuccessReducer":{"isOldFreeSampleView":false},"paymentReducer":{"paytmUserDetails":null,"paytmOTP":null,"paymentCreationInfoStatus":"LOADING"},"checkoutAuthReducer":{"checkoutAuthScreen":"EMAIL_AVAILABILITY"},"StoreNeventsReducer":{},"myProfileReducer":{"myProfile":{},"isMobileUnverified":false},"priveReducer":{"priveData":{}},"giftCardReducer":{},"visitorPrioritizeReducer":{"visitorPriotizeDetails":{}},"saleBoxReducer":{"productIdsInSaleBox":[],"products":[],"config":{}},"priceRevealReducer":{"loadingProducts":false,"categories":[],"fetchedCategories":{},"currentCategory":null,"error":null,"dynamicWishlistSuccessCollection":{},"dynamicWishlistErrorCollection":{},"config":{"isHeaderNavEnabled":false,"priceRevealOnPd":false,"bucket":"HotPinkBoxJuly2021","bucketTitle":"Pink Box","primaryActionLabel":"Add To Pink Box","secondaryActionLabel":"Go To Pink Box","ANDROID_BREAK":228,"IOS_BREAK":273,"navForWeb":"/saleBox/?ptype=saleBox&saleId=hot-pink","shareURL":"https://www.nykaa.com/hot-pink/prices-revealed","shareTitle":"Hot Pink Sale Prices Revealed","shareMessage":"Amazing deals on our fave products from Nykaa's Hot Pink Sale, starting July 22nd. Add your picks to the Pink Box NOW","pageSource":"PriceReveal","seoData":{"meta_title":"Hot Pink Prices Revealed: Sneak Peek Into The Latest Online Offers in Nykaa’s Hot Pink Sale 2021","meta_description":"Hot Pink Sale Prices Revealed: Get a sneak peek in the latest online offers & best deals in Nykaa’s Hot Pink Sale. Get the best deals online on 1000+ products from top brands during the Hot Pink Sale & add them to your pink box. ✓Genuine Products ✓COD ✓Free Shipping."},"isSaleEnabled":false,"alreadyAddedToBoxInfo":"You added this product to your Pink Box","addedToBoxToastMessage":"Added to Pink Box","addedToBoxErrorMessage":"Couldn't Add to Pink Box, Try again","groupSize":0,"inviteFriendsBanners":[{"color":"#84d9ca","image":"https://images-static.nykaa.com/uploads/icons-01.png"},{"color":"#84d9ca","image":"https://images-static.nykaa.com/uploads/icons-02.png"},{"color":"#84d9ca","image":"https://images-static.nykaa.com/uploads/icons-03.png"}],"siteWide":{"saleOfferTitle":"HOT PINK OFFER","colors":{"offerTitle":"#000000","offerPrice":"#000000","offerDiscount":"#000000","offerDescription":"#000000"}},"view":"WEBSITE","saleId":"hot-pink"},"adPlatformData":null,"recentlyAddedProduct":null,"activeFilters":{},"applyingFilters":false},"brandpageReducer":{},"cmsWrapperReducer":{},"reviewImages":{"loading":false,"images":[],"imagesWithInfo":[],"error":null,"productId":null,"totalImagesAvailable":0},"ratingReviewReducer":{"reviews":[],"review":{"buyer":false,"childId":null,"createdOn":"","description":"","id":null,"images":[],"likeCount":0,"name":"","productId":null,"rating":0,"status":null,"title":""},"fetchReviewsStatus":null},"fashionReducer":{"isFetching":false,"isError":false,"availablePaymentMethods":[]},"availableOfferReducer":{"isLoading":true,"isError":false},"myCouponsReducer":{"isLoading":true,"isError":false},"userPortfolio":{"isPortfolioExists":false},"proIntroReducer":{"firstFoldWidgets":null,"secondFoldWidgets":null},"couponsReducer":{"isLoading":true,"isError":false,"coupons":null}}
+          window.__NODE_ENV__ = "production"
+          window.isOldFreeSampleView = 0
+          window.__INITIAL_PARAMS__ = {"ptype":"auth","eq":"desktop","device":"desktop","catalog_tag_filter":"nykaa"}
+          window.datalayer = {"isLoadedThroughSSR":true,"searchListing":{"productIds":[],"resultCount":null},"listingPageType":null,"pageType":"auth","events":"","pageName":"Msite:Nykaa:signUpPage","email":""};
+          window.dataLayer = [{"isLoadedThroughSSR":true,"searchListing":{"productIds":[],"resultCount":null},"listingPageType":null,"pageType":"auth","events":"","pageName":"Msite:Nykaa:signUpPage","email":"","gaId":"UA-31866293-9","isMobile":false,"optimizeId":"GTM-5N7WHH7"}];
+          window.DTM_tag_params = {}
+          window.remoteConfig = {"switches":{"reduxLogger":{"status":true,"configs":{}},"googlePay":{"status":true,"configs":{"enableMobile":true,"enableDesktop":true}},"salePage":{"status":false,"configs":{}},"addToCartV2":{"status":true,"configs":{}},"cartCurrentRequiredOnAddToCart":{"status":true,"configs":{}},"createOrderApiGateway":{"status":false,"configs":{}},"paymentWithoutCart":{"status":true,"configs":{"enableDesktop":false,"enableMobile":true}},"giftcard":{"previewExperiment":{"status":true,"configs":{"min":0,"max":50}},"isFormDetailsSplitEnabled":{"status":true,"configs":{"enableMobile":true,"enableDesktop":false}},"giftCardExperiment":{"status":true,"configs":{"showPreviewInfoPage":{"min":0,"max":0},"showOldListingFlow":{"min":0,"max":0}}},"giftCardNewRepoExperiment":{"status":false,"configs":{"showPageFromNewRepo":{"min":0,"max":0},"showLandingPageExpNewRepo":{"min":0,"max":0}}}},"genericMessageBar":{"configs":{"desktop":{"status":true,"shoppingCartPage":{"status":false,"type":"warn","message":"Due to COVID, delivery may take longer than usual"},"shippingAddressPage":{"status":false,"type":"warn","message":"Due to COVID, delivery may take longer than usual"},"paymentPage":{"status":true,"type":"info","message":"Please use a digital payment method & help us ensure contactless delivery for your safety"},"myOrdersPage":{"status":false,"type":"info","message":"Due to the prevailing pandemic, deliveries may take longer than usual. Our apologies for any inconvenience this may cause"},"orderConfirmationPage":{"status":false,"type":"","message":""},"guestLoginPage":{"status":false,"type":"","message":""}},"mobile":{"status":true,"shoppingCartPage":{"status":false,"type":"warn","message":"Due to COVID, delivery may take longer than usual","en":{"type":"warn","message":"Due to COVID, delivery may take longer than usual"},"hi":{"type":"warn","message":"कोविड की वजह से, डिलीवरी में सामान्य से अधिक समय लग सकता है"}},"shippingAddressPage":{"status":true,"type":"info","message":"Correct address will help delivery partner reach your doorstep quickly"},"paymentPage":{"status":true,"type":"info","message":"Please use a digital payment method & help us ensure contactless delivery for your safety","en":{"type":"info","message":"Please use a digital payment method & help us ensure contactless delivery for your safety"},"hi":{"type":"info","message":"कृपया पेमेंट के डिजिटल तरीके का इस्तेमाल करें और अपनी सुरक्षा पक्की करने के लिए संपर्करहित डिलीवरी में हमारी मदद करें"}},"myOrdersPage":{"status":false,"type":"info","message":"Due to the prevailing pandemic, deliveries may take longer than usual. Our apologies for any inconvenience this may cause"},"orderConfirmationPage":{"status":false,"type":"","message":""},"guestLoginPage":{"status":false,"type":"","message":""}}}},"mobileNumberMapping":true,"zestMoneyExperiment":{"status":false,"configs":{"existingVariant1":{"min":0,"max":0},"existingVariant2":{"min":0,"max":0},"zestMoneyVariant":{"min":0,"max":0}}},"vernacularEnabled":{"status":true},"cashFreeSeamlessMode":{"status":true,"configs":{"isTestModeEnabled":false}},"autoDetectLocation":{"status":false,"configs":{"enableMobile":false,"enableDesktop":false}},"newCheckoutRedirection":{"status":true,"configs":{"showNewCheckoutFlow":{"min":0,"max":100}}},"footer":{"appLinkEnabled":true,"featuresEnabled":true,"socialLinksEnabled":true,"newsletterEnabled":true,"helpCenterEnabled":true},"fetchWishlistIds":true,"bankOfferCardValidation":{"status":false,"configs":{"enableMobile":false,"enableDesktop":false}},"allowedBankOfferPaymentTags":{"status":true,"configs":{"paymentTags":["kaymall"]}},"commonAuthExperiment":{"status":true,"configs":{"redirectToCoreLogin":{"min":0,"max":10}}},"upiIntent":{"status":false,"configs":{"enableMobile":true,"enableDesktop":false}},"upiIntentExpand":{"status":true,"configs":{"enableMobile":true,"enableDesktop":false}},"upiIntentExperiment":{"status":false,"configs":{"expandUpiAndHideGpayPercentage":{"min":0,"max":2},"shrinkUpiAndShowGpayPercentage":{"min":3,"max":4},"showOldUpiFlowPercentage":{"min":5,"max":100}}},"paymentPreConfirmation":{"status":true,"configs":{"enableDesktop":false,"enableMobile":true,"experiment":{"newFlow":{"min":0,"max":50}}}},"cod":{"status":true,"configs":{"enableDesktop":false,"enableMobile":true}},"mySavedPayment":{"status":true,"configs":{"enableDesktop":true,"enableMobile":true}},"ViewOffersCartItem":{"status":true,"configs":{"mobile":{"status":true},"desktop":{"status":false}}},"downloadAppBanner":{"status":true,"configs":{"enableMobile":true,"enableDesktop":false}},"vaultApiGateway":{"status":true,"configs":{}},"checkout":{"isRecaptchaV3Enabled":{"status":true},"isZestNoCostEmiTagVisible":{"status":false}},"cart":{"viewCoupons":{"status":true,"configs":{"enableMobile":true,"enableDesktop":true}},"isKongApiGatewayEnabled":{"status":true,"configs":{"enableMobile":true,"enableDesktop":true}},"isKongApiGatewayEnabledonPayment":{"status":true,"configs":{"enableMobile":true,"enableDesktop":true}}},"viewCouponExperiment":{"status":true,"configs":{"viewCouponPercentage":{"min":0,"max":100}}},"pdPageBanners":true,"universalBanners":false,"saleBox":{"isMoveToBagButtonEnabled":{"status":true,"configs":{"enableMobile":false,"enableDesktop":false}},"isItemPriceVisible":{"status":true,"configs":{"enableMobile":false,"enableDesktop":false}}},"newPDPRedirection":{"status":true,"configs":{"userPercentage":100}},"newHomeRedirection":{"status":true,"configs":{"userPercentage":100}},"isWalletAddMoneyFlowEnabled":{"status":true,"configs":{"enableMobile":false,"enableDesktop":false}},"ratingReviews":{"enableNewReviewForm":{"status":true}},"isCashFreeSeamlessFlowEnabled":{"status":true,"configs":{"enableMobile":true,"enableDesktop":true}},"codToPrepaidWhatsApp":{"status":false,"configs":{"enableDesktop":false,"enableMobile":false}},"order":{"enableKnowMoreSectionDetails":{"status":true,"configs":{"knowMoreUrl":""},"imageSectionEnabled":{"status":true,"imageUrl":""}},"consumeIsReplaceable":{"status":true},"enableVariantReplaceableFeature":{"status":true},"showDisabledCancelButton":{"status":true,"configs":{"alertMsg":"Items aren’t eligible for cancellation post shipment","cancellationPolicyText":"Items are not allowed to be cancelled after they are shipped due to some logistics constraints. However if you don’t require the item anymore then please don’t accept the item from our delivery partner and your refund will be initiated after the item reaches our warehouse. <br/> <br/> Don’t worry this won’t cause any cancellation charges, or affect your future orders with Nykaa"}},"enablePartialCancellation":{"status":true},"enableGCOrderListing":{"status":true},"enableDownloadInvoice":{"status":true,"configs":{"android":true,"ios":true,"allowed_from_android_version":"2.6.3","allowed_from_ios_version":"3.3.1"}},"enableShadeNameDisplay":{"status":false},"enableRtoRefund":{"status":true},"enableInstantRefundModes":{"status":true},"enableExchangeOrReturnFlow":{"status":false},"enableReturnSizeSelection":{"status":false},"mobNoVerificationEnabled":{"status":true},"enableGetSavedDataApi":{"status":true},"enableSingleViewOrderList":{"status":false},"enableSingleViewOrderDetail":{"status":false},"enableExchangeFlow":{"status":false},"enableReturnFlow":{"status":false},"enableEditAddress":{"status":true},"enableInventoryApi":{"status":true},"enableShowStore":{"status":true},"enableOrderListErrorRefresh":{"status":true},"enableNyk2Banner":{"status":true},"enableApiGateway":{"status":true},"enableRateProduct":{"status":true},"enableOrderDetailApiV2":{"status":true},"enableOrderListingApiV2":{"status":true},"enableCreateReturnApiGateway":{"status":true},"enableGetWhatsAppOptInApiGateway":{"status":true},"enableOptInStatusForWhatsAppApiGateway":{"status":true},"enableOrderDetailApiGateway":{"status":true},"enableOrdersSingleOMSApiGateway":{"status":true},"enableRmsUploadFileApiGateway":{"status":true},"enableShipmentDetailedDescription":{"config":{"text":""},"status":true},"enableTicketGenerateApiGateway":{"status":false},"enableUpdateAddressApiGateway":{"status":true},"isShowBuyAgainWidget":{"status":false,"configs":{"enabledForDevices":["mobile","desktop","android","ios"]}},"isExploreMoreWidget":{"status":true,"configs":{"enabledAndroidVersion":"2.3.5","enabledIosVersion":"3.3.0"}},"showCancelOrderConfirmationMsg":{"status":true,"configs":{"successMsg":"Your order has been successfully cancelled. Refund (if any) will be processed within 24 hours. It will take a total of 4-5 business days to reflect in your account.","failureMsg":"Sorry your order could not be cancelled. Please try again."}},"showCancelItemsConfirmationMsg":{"status":true,"configs":{"successMsg":"Your item has been successfully cancelled.","failureMsg":"Sorry we could not process your request. Please try again."}},"orderListingExperiment":{"status":true,"configs":{"orderListingLimits":{"min":0,"max":100}}}},"enableDeliverySectionOnPd":{"status":true,"config":{}},"offerListingEnabled":true,"showUserPortfolio":false,"vpEnabled":false,"showUserPortfolioCTA":true},"configs":{"order":{"getOmsProductUrl":"/gateway-api/apis/v2/product.list","queryRequestUrl":"https://support.nykaa.com/submit-request.php","orderDelayedText":"","desktop":{},"mobile":{"orderDelayedImg":""}},"cart":{},"payment":{"zestMoneyMinAmount":{"amount":1000,"message":"Payable amount should be more than ₹1,000."},"shippingChargeStriked":70,"vpaSuffixList":{"phonePe":["@ybl","@axl","@ibl","Other UPI"],"googlePay":["@okicici","@oksbi","@okaxis","@okhdfcbank","Other UPI"],"paytm":["@paytm","Other UPI"]}},"productEligibilityService":{"active":false,"eligibility":{"saleBanner":"https://images-static.nykaa.com/media/nykaa_sale/Price_Reveal_hp21.png","discountAvailable":"https://images-static.nykaa.com/media/nykaa_sale/Blank_hp21.png","discountNotAvailable":"https://images-static.nykaa.com/media/nykaa_sale/No_Offer.png","title":"HOT PINK PRICE","revealPrice":"https://images-static.nykaa.com/media/nykaa_sale/Price_Reveal_hp21.png","showDiscount":"https://images-static.nykaa.com/media/nykaa_sale/Blank_hp21.png","revealSaleOffer":"https://images-static.nykaa.com/media/nykaa_sale/Offer_Reveal_hp21.png","showSaleOffer":"https://images-static.nykaa.com/media/nykaa_sale/Blank_hp21.png","noDiscount":"https://images-static.nykaa.com/media/nykaa_sale/No_Offer.png"},"productAvailabilityAPI":"http://prod-api.nyk00-int.network/apis/v3/pna"},"homePage":{"pageTypeSuffix":{"status":true,"suffix":"sale"}},"vernacular":{"defaultLanguage":"en","pathsToHideModals":[]},"footer":{"appLinks":{"title":"experience the nykaa mobile app","googlePlay":"https://nykaa.onelink.me/2573509543/aba6fc39","appStore":"https://nykaa.onelink.me/2573509543/aba6fc39"},"helpCenter":{"imgUrl":"https://www.nykaa.com/media/wysiwyg/2020/helpCenter.svg","title":"HELP CENTER","link":"https://www.nykaa.com/gateway-api/omsApis/helpCenter?domain=NYKAA"},"features":{"brandsCount":{"iconUrl":"https://adn-static2.nykaa.com/media/wysiwyg/2021/Brands.svg","title":"2400+ brands","text":"Well Curated 1.9Lakh + Product"},"freeShip":{"iconUrl":"https://adn-static2.nykaa.com/media/wysiwyg/2021/Free-shipping.svg","title":"Free Shipping","text":"for orders above INR"},"genuineProduct":{"iconUrl":"https://adn-static2.nykaa.com/media/wysiwyg/2021/Authenticity.svg","title":"Authentic Products","text":"Sourced Directly from Brands/ Authorised Distributors"},"easyReturns":{"iconUrl":"https://adn-static2.nykaa.com/media/wysiwyg/2021/return_accepted.svg","title":"Easy Returns","text":"15 Day Easy Returns For Most Products"}},"socialLinks":{"text":"show us some love ❤ on social media","social":[{"title":"Instagram","imgUrl":"https://images-static.naikaa.com/media/wysiwyg/2021/icons/ic_social-instagram-filled.svg","link":"https://www.instagram.com/mynykaa/?ref=badge"},{"title":"Facebook","imgUrl":"https://images-static.naikaa.com/media/wysiwyg/2021/icons/ic_social-facebook-filled.svg","link":"https://www.facebook.com/MyNykaa"},{"title":"Youtube","imgUrl":"https://images-static.naikaa.com/media/wysiwyg/2021/icons/ic_social-youtube-filled.svg","link":"https://www.youtube.com/channel/UCoaH2UtB1PsV7av17woV1BA"},{"title":"Twitter","imgUrl":"https://images-static.naikaa.com/media/wysiwyg/2021/icons/ic_social-twitter-filled.svg","link":"https://twitter.com/MyNykaa"},{"title":"Pinterest","imgUrl":"https://images-static.naikaa.com/media/wysiwyg/2021/icons/ic_social-pinterest-filled.svg","link":"https://www.pinterest.com/mynykaa/"}]}},"downloadAppBanner":{"android":{"bannerName":"BeautyAndroidAppInstall","appLink":"https://nykaa.onelink.me/oFr2/3f4156b7"},"ios":{"bannerName":"BeautyIOSAppInstall","appLink":"https://nykaa.onelink.me/oFr2/3f4156b7"}},"dummyEmailId":["@mobile.nykaa","@xyz.com"],"orderDetailCodToPrepaid":{"paymentSuccessStatusMessage":{"title":"Thank You !","subTitle":"We appreciate you opting for digital payments and helping us ensure contactless delivery."},"paymentFailedStatusMessage":{"title":"We did not receive your payment...","subTitle":"If your money was deducted do not worry, it will be refunded within 5 ~ 7 business days. Your order will be shipped as per the schedule."}},"authRedirection":{"active":true,"origins":["https://www.nykaa.com"]},"meta":{"productPage":{"title":"Product_Name: Buy Product_Name Online at Best Price in India | Nykaa","description":"Product_Name Online: Buy Product_Name at best price from Nykaa. Check out Product_Name review. ✓COD ✓Free Shipping"},"brandPage":{"title":"Brand_Name - Buy Brand_Name Products Online at Best Price | Nykaa","description":"Brand_Name products: Buy Brand_Name products online at best price on Nykaa. Browse from a wide range of Brand_Name authentic products online at low price. ✓COD ✓Free shipping ✓Original Products"}},"saleBox":{"BuyNowBox":{"bucket":"BuyNowBox","bucketTitle":"Buy Again","primaryActionLabel":"Add To Bag","secondaryActionLabel":"Tell your Friends","ANDROID_BREAK":228,"IOS_BREAK":273,"navForWeb":"/saleBox/?ptype=saleBox&saleId=BuyNowBox","shareURL":"","shareTitle":"","shareMessage":"","pageSource":"price-reveal","seoData":{"meta_title":"","meta_description":""},"isSaleEnabled":true},"hot-pink":{"isHeaderNavEnabled":false,"priceRevealOnPd":false,"bucket":"HotPinkBoxJuly2021","bucketTitle":"Pink Box","primaryActionLabel":"Add To Pink Box","secondaryActionLabel":"Go To Pink Box","ANDROID_BREAK":228,"IOS_BREAK":273,"navForWeb":"/saleBox/?ptype=saleBox&saleId=hot-pink","shareURL":"https://www.nykaa.com/hot-pink/prices-revealed","shareTitle":"Hot Pink Sale Prices Revealed","shareMessage":"Amazing deals on our fave products from Nykaa's Hot Pink Sale, starting July 22nd. Add your picks to the Pink Box NOW","pageSource":"PriceReveal","seoData":{"meta_title":"Hot Pink Prices Revealed: Sneak Peek Into The Latest Online Offers in Nykaa’s Hot Pink Sale 2021","meta_description":"Hot Pink Sale Prices Revealed: Get a sneak peek in the latest online offers & best deals in Nykaa’s Hot Pink Sale. Get the best deals online on 1000+ products from top brands during the Hot Pink Sale & add them to your pink box. ✓Genuine Products ✓COD ✓Free Shipping."},"isSaleEnabled":false,"alreadyAddedToBoxInfo":"You added this product to your Pink Box","addedToBoxToastMessage":"Added to Pink Box","addedToBoxErrorMessage":"Couldn't Add to Pink Box, Try again","groupSize":0,"inviteFriendsBanners":[{"color":"#84d9ca","image":"https://images-static.nykaa.com/uploads/icons-01.png"},{"color":"#84d9ca","image":"https://images-static.nykaa.com/uploads/icons-02.png"},{"color":"#84d9ca","image":"https://images-static.nykaa.com/uploads/icons-03.png"}],"siteWide":{"saleOfferTitle":"HOT PINK OFFER","colors":{"offerTitle":"#000000","offerPrice":"#000000","offerDiscount":"#000000","offerDescription":"#000000"}}}},"plpPriceReveal":{"status":false,"categoryId":[],"text":"SALE OFFER INSIDE","textColor":"#E80071","badgeColor":"#FDEBF4"},"freeShipping":499,"brandsCount":2400,"productsCount":"1.9Lakh","captchaV3":{"status":true,"percentage":100},"registerMobileNumberMandatory":{"active":true,"userPercentage":100},"storeOptions":{"status":false,"backToBeautyText":"Nykaa Main Store","exploreMoreStores":"https://images-static.nykaa.com/media/explore_stores_v5.png","stores":[]},"AB":{"newShippingAddressWidget":{"status":true,"userPercentage":50,"cookie":"N_S_A_W"},"couponsRevamp":{"status":true,"userPercentage":10,"keyName":"ab_coupons_revamp"},"dweblstMigration":{"status":true,"userPercentage":100,"keyName":"ab_dweb_listingpage","cookie":"D_LST"},"dwebPdpMigration":{"status":true,"userPercentage":100,"keyName":"ab_dweb_pdp","cookie":"D_PDP"},"newAddressRedirection":{"status":true,"userPercentage":50,"cookie":"N_A_P"},"newPaymentDetail":{"savedPage":{"status":true,"userPercentage":60,"keyName":"ab_payment_details","cookie":"N_P_D_SAVED"},"allPage":{"status":true,"userPercentage":80,"keyName":"ab_payment_details","cookie":"N_P_D_ALL"}},"expandedPaymentDetail":{"savedPage":{"status":true,"userPercentage":20,"keyName":"exp_payment_details","cookie":"E_P_D_SAVED"},"allPage":{"status":true,"userPercentage":20,"keyName":"exp_payment_details","cookie":"E_P_D_ALL"}},"gPayIntent":{"status":true,"userPercentage":100,"keyName":"ab_gpay_intent","cookie":"GPAY_INTENT"},"gcListingExp":{"status":false,"userPercentage":0,"keyName":"ab_new_GC_listing","cookie":"ab_new_GC_listing"},"gcLandingExp":{"status":true,"userPercentage":100,"keyName":"ab_new_GC_landing","cookie":"ab_new_GC_landing"},"fbHide":{"status":true,"userPercentage":100,"keyName":"fb_hide"},"categoryTree":{"status":true,"userPercentage":100,"keyName":"category_tree"},"resetPassword":{"status":false,"userPercentage":0,"keyName":"ab_resetPassword"},"sizeChart":{"status":true,"userPercentage":100,"keyName":"size_chart"},"dwebMigration":{"status":true,"userPercentage":100,"keyName":"ab_dweb","cookie":"D_HOM"},"suggestMobileMap":{"status":true,"userPercentage":100,"keyName":"ab_suggestedMap"},"cmsNewStack":{"status":true,"userPercentage":5,"keyName":"ab_cms","cookie":"N_CMS"},"mandMobileMap":{"status":false,"userPercentage":2,"keyName":"ab_mandotryMap"},"mobileRegister":{"status":true,"userPercentage":100,"keyName":"ab_mobile_reg"},"gamoogaEnable":{"status":true,"userPercentage":80,"keyName":"ab_gamooga"}},"VP":{"apiKey":"AIzaSyBCiWco5cS6Uja2-642pPZl_Ed0lRROZc4","authDomain":"nykaa-android-1224.firebaseapp.com","databaseURL":"https://nykaa-android-1224.firebaseio.com","projectId":"nykaa-android-1224","storageBucket":"nykaa-android-1224.appspot.com","messagingSenderId":"1035734725184","appId":"1:1035734725184:web:cd91daa8cac5a2baa0e5a5","measurementId":"G-W9QPFFEM7C","doc":"api_prioritization","collection":"nykaa"},"proWarningText":"Please limit address changes in your account. In case of frequent changes, Nykaa PRO reserves the right to discontinue your membership.","customerCareNum":"1800-267-4444","domains":["www.nykaa.com","api.nykaa.com","adn-static2.nykaa.com","adn-static1.nykaa.com","prod-events.nykaa.com"]}};
+          window.langConfig = {"en":{"REMOVE_ITEM_FROM_BAG":"Remove Item from Bag?","SELECT_QUANTITY":"Select Quantity","VIEW_COUPONS":"View Coupons","DYNAMIC_REWARD_POINTS":"{count} Reward Points on new registration","LOGIN_OR_REGISTER":"Login / Register","PAYMENT_DETAILS":"Payment Details","BAG_TOTAL":"Bag Total","SUB_TOTAL":"Sub Total","SHIPPING_CHARGE":"Shipping Charge","GRAND_TOTAL":"Grand Total","HAVE_COUPON":"Have a coupon?","HAVE_A_COUPON":"Have a coupon?","ENTER_COUPON":"Enter coupon","APPLY":"Apply","SELECT_SHIPPING_ADDRESS":"Select shipping Address","SELECT_COUNTRY":"Select Country","NAME":"Name","EMAIL":"Email","MOBILE_NUMBER":"Mobile Number","POSTAL_CODE":"Postal Code","ADDRESS":"Address","SHIP_TO_THIS_ADDRESS":"SHIP TO THIS ADDRESS","CREDIT_DEBIT_CARD":"CREDIT/DEBIT CARD","BHIM_UPI":"UPI","GOOGLE_PAY":"Google Pay","NETBANKING":"NETBANKING","MOBILE_WALLETS":"MOBILE WALLETS","CASH_ON_DELIVERY":"CASH ON DELIVERY","REDEEM_GIFT_CARD":"REDEEM GIFT CARD!","USE_DIGITAL_PAYMENT_METHOD":"Please use a digital payment method & help us ensure contactless delivery for your safety","DYNAMIC_OFFER_AVAILABLE":"{count} offer available","DYNAMIC_OFFER_APPLIED":"{count} offer applied","SHIPPING_ADDRESS":"Shipping Address","CHANGE":"CHANGE","YOUR_FAVOURITE_PAYMENT_METHODS":"YOUR FAVOURITE PAYMENT METHODS","OTHER_PAYMENT_METHODS":"OTHER PAYMENT METHODS","PAY_NOW":"PAY NOW","DYNAMIC_PAY_BY_CASH":"PAY {count} BY CASH","DYNAMIC_PAY_NOW":"PAY {count} NOW","ORDER_CONFIRMED":"Order Confirmed!","WE_ARE_PLEASED_TO_CONFIRM_YOUR_ORDER_NUMBER":"We are pleased to confirm your order no.","AMOUNT_DUE":"Amount Due","YOU_WILL_RECIEVE_UPDATE_ON":"YOU WILL RECEIVE UPDATES ON","PAYMENT_METHODS":"PAYMENT METHODS","PRODUCTS_IN_THIS_PURCHASE":"PRODUCTS IN THIS PURCHASE","SUB_TOTAL_INCLUDED_TAX":"Subtotal (Incl. Tax)","DISCOUNT":"Discount","NET_SAVINGS":"Net Savings","CONFIRMATION":"Confirmation","SAVED_ADDRESSES":"Saved Addresses","NEW_ADDRESS":"New Address","EDIT":"EDIT","ARE_YOU_SURE_WANT_TO_REMOVE_THIS_ADDRESS":"ARE YOU SURE YOU WANT TO REMOVE THIS ADDRESS?","CANCEL":"CANCEL","REMOVE":"REMOVE","PROCEED":"PROCEED","DYNAMIC_PERCENTAGE_OFF":"{count}% off","FREE":"Free","DYNAMIC_ITEMS_IN_YOUR_BAG":"{count} Items in your bag","DYNAMIC_PAY_THROUGH_PAYTM":"Pay {count} Through Paytm","SUBMIT":"Submit","REQUIRED":"Required","CARD_NUMBER":"Card Number","INVALID_CARD_NUMBER":"Card number is not valid.","INVALID_CVV":"Not a valid CVV","INVALID_YEAR":"Invalid Year","INVALID_MONTH":"Invalid month","PHONE_NUMBER_NOT_VALID":"PHONE NUMBER NOT VALID","PROCEED_TO_PAY":"Proceed to Pay","SELECT_ADDRESS_AND_PAY":"Select Address & Pay","DYNAMIC_PAYMENT_RS":"Payment Rs {count}","BAG_DISCOUNT":"Bag Discount","DYNAMIC_DISCOUNT":"Discount {count}","DYNAMIC_SHIPPING_CHARGE":"Shipping Charge of Rs.${shippingCharge} will apply on subtotal below Rs.${shippingChargeLimit}","DYNAMIC_SHIPPING_CHARGE_FREE":"Shipping over order of Rs. {shippingLimit} is free","GIFT_CARD_VALUE":"Gift Card Value","GIFT_CARD_NUMBER":"Gift Card Number","GIFT_CARD_PIN":"Pin","PHONE_NUMBER":"Phone Number","MOBILE_NUMBER_OR_GPAY_ID":"Enter Mobile Number/Google Pay UPI ID ","GIFT_CARD_BALANCE":"Gift Card Balance","NYKAA_WALLET_USED":"Nykaa Wallet Used","AMOUNT_PAYABLE":"Amount Payable","PLACE_ORDER":"Place Order","SEND_PAYMENT_REQUEST":"SEND PAYMENT REQUEST","CONNECT_PAYTM":"Connect Paytm","CONNECT_TO_ONE_CLICK_PAYTM":"Connect Your Paytm Account to Enable One-Click Payment","NOTE_CONNECT_TO_ONE_CLICK_PAYTM":"Note: Connect Your Paytm Account to Enable One-Click Payment","OTHER_BANKS":"OTHER BANKS","SELECT_YOUR_BANK":"Select your bank","PAY_WITH_ANY_UPI_APP":"Pay with any UPI App you have on your phone","UPI_INTENT_REDIRECT_TO_PAYU":"You will be redirected to PayU’s payment page to complete the payment","DYNAMIC_OPEN_APP_OR_TAP":"OPEN {title} or tap on the payment request notification","DYNAMIC_OPEN_MOBILE_APP_LINKED":"Open Mobile App linked with {count}","CHECK_FOR_PAYMENT_REQUEST":"Check for “Payment Request”","CHECK_FOR_NYKAA_PAYMENT_REQUEST":"Check for “Payment Request” from NYKAA E RETAIL PRIVATE LIMITED","COMPLETE_UPI_PAYMENT":"Complete the payment entering UPI PIN","NOTE_FOR_UPI_PAYMENT":"NOTE: If you have entered UPI ID of a friend or relative  they will have to approve payment using their UPI linked App","DYNAMIC_UPI_PAYMENT_EXPIRE_MSG":"This payment request will automatically expire in {count} minutes","RESEND_REQUEST":"Resend Request","DYNAMIC_SELECT_ADDRESS_AND_PAY":"Select Address & Pay Rs {count}","SHOPPING_BAG":"Shopping Bag","DYNAMIC_ShOPPING_BAG":"SHOPPING BAG {item_count}","PICK_YOUR_FREE_PRODUCT":"PICK YOUR FREE PRODUCT","PICKED":"Picked","DYNAMIC_APPLY_REWARD_POINTS":"{rewardPoints} Reward Points Rs{rewardRupees}","QUANTITY":"Quantity","DONE":"Done","WITHOUT_FREEBIES":"WITHOUT FREEBIES","EXPIRES_ON":"EXPIRES ON","USES_LEFT":"USES LEFT","FETCHING_COUPONS":"Fetching coupons","APPLYING_COUPON":"Applying coupon","NO_COUPONS_AVAILABLE":"No coupon available","DYNAMIC_COUPON_APPLIED_SUCCESSFULLY":"coupon code {coupon_code} is applied successfully","DYNAMIC_REWARD_POINT_ON_NEW_REGISTERATION":"2000 Reward Points on new registration","ADD_TO_BAG":"ADD TO BAG","START_SHOPPING":"Start Shopping","YOUR_SHOPPING_BAG_IS_EMPTY":"Your Shopping Bag is empty","DYNAMIC_INTERNATIONAL_SHIPPING_CHARGE":"A shipping charge of Rs{shippingCharge} will be applied on orders below Rs{shippingLimit} for delivery outside India","USE_THIS_AS_MY_DEFAULT_SHIPPING_ADDRESS":"Use this as my default shipping address","SELECT_ADDRESS":"Select Address","SELECT_COUNTRY_OF_SHIPPING":"Select country of shipping","UNLIMITED":"Unlimited","INCLUDE_TAX":"(Incl. Tax)","TIP":"TIP :","ADD_IT_TO_YOUR_WISHLIST_TO_PURCHASE_IT_LATER":"Add it to your wishlist to<br />purchase it later!","YES":"Yes","NO":"no","RESTORE_BAG":"RESTORE BAG","DYNAMIC_NO_DONT_WANT_FREEBIES":"NO I DON’T WANT {count} FREEBIES","NYKAA_WALLET":"NYKAA WALLET","EDIT_ADDRESS":"Edit Address","REMOVE_COUPON":"Remove Coupon","REMOVE_COUPON_NOTE":"To use other payment options kindly remove coupon","EMPTY_EXPIRY_DATE_OR_CVV_EMPTY":"If there is no expiry date or cvv on your card leave the fields blank.","SAVE_THIS_CARD_FOR_FUTURE":"Save this card for Future","OUT_OF_STOCK":"Out of stock","QTY":"Qty","APPLIED":"Applied","VIEW_PRODUCTS":"View products","OKAY_GOT_IT":"OKAY, GOT IT","COULD_NOT_LOAD_OFFER_MESSAGE":"Could not load offer details, please try again…","OFFER_IS_NOT_AVAILABLE_ANYMORE_MESSAGE":"The offer you are looking for is not available anymore","ADD_TO_WISHLIST":"ADD TO WISHLIST","VIEW":"View","AVAILABLE_BALANCE":"Available Balance","DYNAMIC_NOT_ENOUGH_BALANCE_IN_PAYTM":"You Don’t have Enough Balance to complete this transanction. Add ₹ {count} to Paytm Account to Continue","ENTER_PAYTM_AMOUNT":"Enter Amount (Max 10000)","ADD_PAYTM_BALANCE":"Add Paytm balance","LAST_USED_PAYMENT_METHOD":"LAST USED PAYMENT METHOD","LAST_DIGIT_IN_BACK_OF_THE_CARD":"Last cvvLength Digits at the back of the Card","DYNAMIC_PAY_NOW_WITH_STRIKED_AMOUNT":"PAY <del> &#8377;{oldAmount}</del> &#8377;{newAmount} NOW","DYNAMIC_SELECT_APP_TO_PAY_NOW_WITH_STRIKED_AMOUNT":"SELECT APP TO PAY <del> &#8377;{oldAmount}</del> &#8377;{newAmount} NOW","DYNAMIC_SELECT_APP_TO_PAY_NOW":"SELECT APP TO PAY &#8377;{count} NOW","OFFERS_TAG":"OFFERS","FOR_SECURITY_REASON_VERIFY_YOUR_NUMBER":"For security reasons we recommend you verify your phone number.","VERIFY_YOUR_NUMBER":"VERIFY YOUR NUMBER","WE_PROMISE_NOT_TO_SEND_ANY_SPAM":"We promise we would not send any spam.","YOU_HAVE_UNLOCKED_A_COUPON":"YOU HAVE UNLOCKED A COUPON","CHARGE":"Charge","ADDED_TO_BAG":"ADDED TO BAG","INVALID_EMAIL":"Not a valid email","INVALID_PHONE_NUMBER":"Phone Number not valid","DYNAMIC_DISCOUNT_OFF":"{count} off","INVALID_PINCODE":"Not a valid pincode","OR":"OR","AND_MORE":"And more","REQUEST_OTP":"REQUEST OTP","RESEND_OTP":"RESEND OTP","THIS_FIELD_IS_REQUIRED":"This field is required","ADDRESS_MIN_CHARS":"Address should have at least 5 characters","NAME_MIN_CHARS":"Name should have at least three characters","NAME_MAX_CHARS":"Name should have maximum of 100 characters","SOMETHING_WENT_WRONG":"SOMETHING WENT WRONG","UPI_ADDRESS_NOT_VALID":"UPI ADDRESS NOT VALID","PAYMENT_FAILED":"PAYMENT FAILED","SERVER_ERROR":"SERVER ERROR","COMPLETE_YOUR_PAYMENT":"Complete your payment","DIDNOT_RECIEVED_REQUEST_OR_TIME_UP":"In case you have not received the request, or the time is up, you can","OFFER_APPLIED":"OFFER APPLIED","DYNAMIC_UP_TO_PERCENTAGE_OFF":"UP TO {count}% OFF","DYNAMIC_UP_TO_DISCOUNT_OFF":"UP TO {count} OFF"},"hi":{"REMOVE_ITEM_FROM_BAG":"बैग से आइटम को निकाल दें?","SELECT_QUANTITY":"क्वान्टिटी चुनें","VIEW_COUPONS":"कूपन देखें","DYNAMIC_REWARD_POINTS":"नए रजिस्ट्रेशन पर {count} रिवॉर्ड पॉइंट","LOGIN_OR_REGISTER":"लॉग इन / रजिस्टर करें","PAYMENT_DETAILS":"पेमेंट की जानकारी","BAG_TOTAL":"बैग टोटल","SUB_TOTAL":"उप-योग","SHIPPING_CHARGE":"डिलीवरी चार्ज","GRAND_TOTAL":"कुल योग","HAVE_COUPON":"क्या आपके पास कूपन कोड है?","HAVE_A_COUPON":"क्या आपके पास कूपन कोड है?","ENTER_COUPON":"कूपन दर्ज करें","APPLY":"लागू करें","SELECT_SHIPPING_ADDRESS":"डिलीवर करने का पता चुनें","SELECT_COUNTRY":"देश चुनें","NAME":"नाम","EMAIL":"ईमेल","INVALID_EMAIL":"ईमेल मान्य नहीं है","MOBILE_NUMBER":"मोबाइल नंबर","POSTAL_CODE":"डाक कोड","INVALID_PINCODE":"पिन कोड मान्य नहीं है","ADDRESS":"पता","SHIP_TO_THIS_ADDRESS":"इस पते पर शिप करें","CREDIT_DEBIT_CARD":"क्रेडिट/डेबिट कार्ड","BHIM_UPI":"BHIM UPI","GOOGLE_PAY":"Google Pay","NETBANKING":"नेट बैंकिंग","MOBILE_WALLETS":"मोबाइल वॉलेट","CASH_ON_DELIVERY":"कैश ऑन डिलीवरी","REDEEM_GIFT_CARD":"गिफ्ट कार्ड रिडीम करें!","USE_DIGITAL_PAYMENT_METHOD":"कृपया किसी डिजिटल भुगतान विधि का इस्तेमाल करें और आपकी सुरक्षा के मद्देनज़र दूरी बनाए रखते हुए डिलीवरी करने मैं हमारी मदद करें","DYNAMIC_OFFER_AVAILABLE":"{count} ऑफ़र उपलब्ध है","DYNAMIC_OFFER_APPLIED":"{count} ऑफ़र लागू किया गया","SHIPPING_ADDRESS":"डिलीवरी पता","CHANGE":"बदलें","YOUR_FAVOURITE_PAYMENT_METHODS":"आपके पसंदीदा पेमेंट तरीके","OTHER_PAYMENT_METHODS":"पेमेंट के अन्य तरीके","PAY_NOW":"अभी पेमेंट करें","DYNAMIC_PAY_BY_CASH":"कैश द्वारा {count} का पेमेंट करें","DYNAMIC_PAY_NOW":"अभी {count} का पेमेंट करें","ORDER_CONFIRMED":"ऑर्डर कन्फ़र्म किया गया!","WE_ARE_PLEASED_TO_CONFIRM_YOUR_ORDER_NUMBER":"हमें आपका यह ऑर्डर नंबर कन्फ़र्म करके खुशी मिली","AMOUNT_DUE":"देय राशि","YOU_WILL_RECIEVE_UPDATE_ON":"आपको इस पर अपडेट मिलेंगे","PAYMENT_METHODS":"भुगतान विधि","PRODUCTS_IN_THIS_PURCHASE":"इस खरीदारी में शामिल प्रोडक्ट","SUB_TOTAL_INCLUDED_TAX":"उप-योग (VAT के साथ)","DISCOUNT":"छूट","NET_SAVINGS":"कुल बचत","CONFIRMATION":"पुष्टीकरण","SAVED_ADDRESSES":"सेव किए गए पते","NEW_ADDRESS":"नया पता","EDIT":"बदलें","ARE_YOU_SURE_WANT_TO_REMOVE_THIS_ADDRESS":"क्या आप वाकई यह पता हटाना चाहते हैं?","CANCEL":"रद्द करें","REMOVE":"बाहर करें","PROCEED":"आगे बढ़ें","DYNAMIC_PERCENTAGE_OFF":"{count}% की छूट","FREE":"मुफ़्त","DYNAMIC_ITEMS_IN_YOUR_BAG":"आपके बैग में {count} आइटम","DYNAMIC_PAY_THROUGH_PAYTM":"Paytm से {count} का पेमेंट करें","SUBMIT":"सबमिट करें","REQUIRED":"ज़रूरी","CARD_NUMBER":"कार्ड नंबर","INVALID_CARD_NUMBER":"कार्ड नंबर मान्य नहीं है","INVALID_CVV":"CVV मान्य नहीं है","INVALID_YEAR":"अमान्य साल","INVALID_MONTH":"अमान्य महीना","PROCEED_TO_PAY":"पेमेंट करने के लिए आगे बढ़ें","SELECT_ADDRESS_AND_PAY":"पता चुनें और पेमेंट करें","DYNAMIC_PAYMENT_RS":"रुपये {count} का पेमेंट","BAG_DISCOUNT":"बैग डिस्काउंट","DYNAMIC_DISCOUNT":"डिस्काउंट {count}","DYNAMIC_SHIPPING_CHARGE":"डिलीवरी के लिए {shippingLimit} से कम के ऑर्डर पर {shippingCharge} रु. का शिपिंग चार्ज लगाया जाएगा","DYNAMIC_SHIPPING_CHARGE_FREE":"{shippingLimit} रुपये से ऊपर के ऑर्डर पर डिलीवरी फ़्री है","GIFT_CARD_VALUE":"गिफ्ट कार्ड वैल्यू","GIFT_CARD_NUMBER":"गिफ्ट कार्ड नंबर","GIFT_CARD_PIN":"पिन","MOBILE_NUMBER_OR_GPAY_ID":"मोबाइल नंबर/Google Pay UPI ID डालें","GIFT_CARD_BALANCE":"गिफ्ट कार्ड बैलेंस","NYKAA_WALLET_USED":"Nykaa वॉलेट का इस्तेमाल किया गया","AMOUNT_PAYABLE":"देय राशि","PLACE_ORDER":"ऑर्डर करें","SEND_PAYMENT_REQUEST":"भुगतान का अनुरोध भेजें","CONNECT_PAYTM":"Paytm कनेक्ट करें","CONNECT_TO_ONE_CLICK_PAYTM":"एक-क्लिक भुगतान सक्षम करने के लिए अपना Paytm खाता कनेक्ट करें","NOTE_CONNECT_TO_ONE_CLICK_PAYTM":"नोट: एक-क्लिक भुगतान सक्षम करने के लिए अपना Paytm खाता कनेक्ट करें","OTHER_BANKS":"दूसरा बैंक","SELECT_YOUR_BANK":"अपना बैंक चुनें","PAY_WITH_ANY_UPI_APP":"अपने फ़ोन में मौजूद किसी भी UPI ऐप से पेमेंट करें","UPI_INTENT_REDIRECT_TO_PAYU":"पेमेंट पूरा करने के लिए आपको UPI के पेमेंट पेज पर रीडायरेक्ट किया जाएगा","DYNAMIC_OPEN_APP_OR_TAP":"{title} खोलें या पेमेंट रिक्वेस्ट के नोटिफ़िकेशन पर टैप करें","DYNAMIC_OPEN_MOBILE_APP_LINKED":"{count} से लिंक किया गया मोबाइल ऐप खोलें","CHECK_FOR_PAYMENT_REQUEST":"“पेमेंट का अनुरोध” देखें","CHECK_FOR_NYKAA_PAYMENT_REQUEST":"NYKAA E RETAIL PRIVATE LIMITED का पेमेंट का अनुरोध देखें","COMPLETE_UPI_PAYMENT":"UPI पिन डालकर पेमेंट पूरा करें","NOTE_FOR_UPI_PAYMENT":"नोट: यदि आपने किसी मित्र या रिश्तेदार की UPI ID डाली है तो उन्हें अपने UPI से लिंक किए ऐप का इस्तेमाल करके भुगतान की स्वीकृति देनी होगी","DYNAMIC_UPI_PAYMENT_EXPIRE_MSG":"भुगतान का यह अनुरोध {count} मिनटों में अपने-आप समाप्त हो जाएगा","RESEND_REQUEST":"रिक्वेस्ट फिर से भेजें","DYNAMIC_SELECT_ADDRESS_AND_PAY":"पता चुनकर {count} रूपये का पेमेंट करें","SHOPPING_BAG":"शॉपिंग बैग","DYNAMIC_SHOPPING_BAG":"शॉपिंग बैग {item_count}","DYNAMIC_ShOPPING_BAG":"शॉपिंग बैग {item_count}","PICK_YOUR_FREE_PRODUCT":"अपना फ़्री प्रोडक्ट चुनें","PICKED":"चुना गया","DYNAMIC_APPLY_REWARD_POINTS":"{rewardPoints} रिवॉर्ड पॉइंट {rewardRupees}","QUANTITY":"मात्रा","DONE":"पूरा हुआ","WITHOUT_FREEBIES":"मुफ़्त चीज़ों के बिना","EXPIRES_ON":"आखिरी तारीख","USES_LEFT":"इस्‍तेमाल बाकी","FETCHING_COUPONS":"कूपन प्राप्‍त हो रहे हैं","APPLYING_COUPON":"कूपन लागू कर रहे हैं","NO_COUPONS_AVAILABLE":"कोई कूपन उपलब्‍ध नहीं","DYNAMIC_COUPON_APPLIED_SUCCESSFULLY":"कूपन कोड {couponcode} सफलतापूर्वक लागू किया गया","DYNAMIC_REWARD_POINT_ON_NEW_REGISTERATION":"नए रजिस्‍ट्रेशन पर 2000 रिवार्ड प्‍वाइंट","ADD_TO_BAG":"बैग में डालें","START_SHOPPING":"शॉपिंग शुरू करें","YOUR_SHOPPING_BAG_IS_EMPTY":"आपका शॉपिंग बैग खाली है","DYNAMIC_INTERNATIONAL_SHIPPING_CHARGE":"भारत से बाहर डिलीवरी के लिए {shippingLimit} से कम के ऑर्डर पर {shippingCharge} रु. का शिपिंग चार्ज लगाया जाएगा","USE_THIS_AS_MY_DEFAULT_SHIPPING_ADDRESS":"इसे मेरे डिफ़ॉल्ट शिपिंग पते के रूप में उपयोग करें","SELECT_ADDRESS":"पता चुनें","SELECT_COUNTRY_OF_SHIPPING":"शिपिंग का देश चुनें","UNLIMITED":"असीमित","INCLUDE_TAX":"(कर सहित)","TIP":"सुझाव:","ADD_IT_TO_YOUR_WISHLIST_TO_PURCHASE_IT_LATER":"इसे बाद में खरीदने के लिए अपनी विशलिस्ट में जोड़ें","YES":"हाँ","NO":"नहीं","RESTORE_BAG":"बैग रीस्टोर करें","DYNAMIC_NO_DONT_WANT_FREEBIES":"नहीं, मुझे {count} मुफ्त उपहार नहीं चाहिए","NYKAA_WALLET":"Nykaa वॉलेट","EDIT_ADDRESS":"पता संपादित करें","REMOVE_COUPON_NOTE":"अन्य पेमेंट विकल्पों का उपयोग करने के लिए कृपया कूपन हटा दें","REMOVE_COUPON":"कूपन हटाएं","EMPTY_EXPIRY_DATE_OR_CVV_EMPTY":"यदि आपके कार्ड पर कोई समाप्ति तिथि या CVV नहीं है तो फ़ील्ड खाली छोड़ दें","SAVE_THIS_CARD_FOR_FUTURE":"भविष्य के लिए इस कार्ड को सेव करें","OUT_OF_STOCK":"स्टॉक में नहीं है","QTY":"QTY","APPLIED":"लागू किया गया","VIEW_PRODUCTS":"प्रोडक्ट देखें","OKAY_GOT_IT":"ठीक है, समझ गए","COULD_NOT_LOAD_OFFER_MESSAGE":"ऑफ़र विवरण लोड नहीं किया जा सका, कृपया पुन: प्रयास करें…","OFFER_IS_NOT_AVAILABLE_ANYMORE_MESSAGE":"आप जिस ऑफ़र की तलाश कर रहे हैं वह अब उपलब्ध नहीं है","ADD_TO_WISHLIST":"विशलिस्ट में जोड़ें","VIEW":"देखें","AVAILABLE_BALANCE":"उपलब्ध बैलेंस","DYNAMIC_NOT_ENOUGH_BALANCE_IN_PAYTM":"यह पेमेंट करने के लिए आपके Paytm अकाउंट में पर्याप्त बैलेंस नहीं है | कृप्या Paytm अकाउंट में {count} जोड़ें","ENTER_PAYTM_AMOUNT":"राशि दर्ज करें (अधिकतम 10000)","ADD_PAYTM_BALANCE":"ऑर्डर करने के लिए Paytm बैलेंस जोड़ें","LAST_USED_PAYMENT_METHOD":"पहले इस्तेमाल किए गए पेमेंट के तरीके","LAST_DIGIT_IN_BACK_OF_THE_CARD":"आपके क्रेडिट कार्ड के पीछे के अंतिम 3 अंक","DYNAMIC_PAY_NOW_WITH_STRIKED_AMOUNT":"<del> &#8377; {oldAmount}</del> &#8377; {newAmount} अभी भुगतान करें","DYNAMIC_SELECT_APP_TO_PAY_NOW_WITH_STRIKED_AMOUNT":"<del> &#8377; {oldAmount}</del> &#8377; {newAmount} का भुगतान अभी करने के लिए ऐप का चयन करें","DYNAMIC_SELECT_APP_TO_PAY_NOW":"&#8377; ${count} का भुगतान अभी करने के लिए ऐप का चयन करें","OFFERS_TAG":"ऑफ़र","FOR_SECURITY_REASON_VERIFY_YOUR_NUMBER":"सुरक्षा कारणों से हम आपको अपना फ़ोन नंबर सत्यापित करने का सुझाव देते हैं।","VERIFY_YOUR_NUMBER":"अपना नंबर सत्यापित करें","WE_PROMISE_NOT_TO_SEND_ANY_SPAM":"हम वादा करते हैं कि हम कोई स्पैम नहीं भेजेंगे।","YOU_HAVE_UNLOCKED_A_COUPON":"आपने एक कूपन अनलॉक किया है","CHARGE":"शुल्क","ADDED_TO_BAG":"बैग में जोड़ा गया","PHONE_NUMBER":"फ़ोन नंबर","PHONE_NUMBER_NOT_VALID":"फ़ोन नंबर मान्य नहीं है","INVALID_PHONE_NUMBER":"फ़ोन नंबर मान्य नहीं है","DYNAMIC_DISCOUNT_OFF":"{count} की छूट","OR":"या","AND_MORE":"और ज्यादा","REQUEST_OTP":"OTP का अनुरोध करें","RESEND_OTP":"OTP फिर से भेजें","THIS_FIELD_IS_REQUIRED":"यह जरूरी फ़ील्ड है","ADDRESS_MIN_CHARS":"पता में कम से कम 5 कैरेक्टर होना चाहिए","NAME_MIN_CHARS":"नाम में कम से कम तीन कैरेक्टर होना चाहिए","NAME_MAX_CHARS":"नाम में अधिकतम 100 कैरेक्टर होना चाहिए,","SOMETHING_WENT_WRONG":"कुछ गड़बड़ हो गई","UPI_ADDRESS_NOT_VALID":"UPI पता सही नहीं है","PAYMENT_FAILED":"भुगतान विफल","SERVER_ERROR":"सर्वर त्रुटि","COMPLETE_YOUR_PAYMENT":"अपना भुगतान पूरा करें","DIDNOT_RECIEVED_REQUEST_OR_TIME_UP":"अनुरोध नहीं मिलने, या समय खत्म हो जाने पर, आप ये कर सकते हैं","OFFER_APPLIED":"ऑफ़र लागू किया गया","DYNAMIC_UP_TO_PERCENTAGE_OFF":"{count}% तक की छूट","DYNAMIC_UP_TO_DISCOUNT_OFF":"{count} तक की छूट"}};
+          window.isPhpSessIdSet = true;</script><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet" type="text/css"> <link rel="stylesheet" href="//cdnr.nykaa.com/assets/desktop/css/desktop-22.55.css?v=22.55" charset="utf-8" id=""><!-- Chunk Level CSS bundles--><link rel="stylesheet" href="//cdnr.nykaa.com/build/nykaa/public/desktop/desktop.f06a8d.css" charset="utf-8"><!-- Entry Level CSS bundles--> <!--Used to add additional assets baesd on routes--> <script>var loadJS = function (src, id, cb, isAsync) {
+          var ref = document.getElementsByTagName("script")[0];
+          var script = document.createElement("script");
+          script.src = src;
+          script.id = id;
+          script.async = isAsync;
+          ref.parentNode.insertBefore(script, ref);
+          if (cb && typeof(cb) === "function") {
+            script.onload = cb;
+          }
+          return script;
+        };</script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1591183734470216&ev=PageView&noscript=1"></noscript><noscript><div style="display:inline;"><img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/973553145/?guid=ON&amp;script=0"></div></noscript>  <script src="https://assets.adobedtm.com/extensions/EPbde2f7ca14e540399dcc1f8208860b7b/AppMeasurement.min.js" async=""></script><script src="https://assets.adobedtm.com/extensions/EPbde2f7ca14e540399dcc1f8208860b7b/AppMeasurement_Module_ActivityMap.min.js" async=""></script><script src="https://assets.adobedtm.com/9fd933316b2a/f476cc2447e7/2787ad32a592/RC0262389d66c64c609c654e9e4e6f0f30-source.min.js" async=""></script><script src="https://assets.adobedtm.com/9fd933316b2a/f476cc2447e7/2787ad32a592/RC9a547827c890493a92a4ecfdfed8694e-source.min.js" async=""></script><script type="text/javascript" src="https://apis.google.com/js/platform.js?onload=init" gapi_processed="true"></script><script type="text/javascript" id="google_recaptcha_v3_api" src="https://www.google.com/recaptcha/api.js?render=6LcFevoUAAAAACEdtUxI8JKtDeA1ssM9rrw4B0U5"></script><script type="text/javascript" src="//cdn-jp.gsecondscreen.com/static/jquery-noamd.min.js"></script><style id="verloopCss" type="text/css">
+                        .no-transition {
+                            transition: none;
+                        }
+                        .verloop-button {
+                            position: fixed;
+                            bottom: 20px;
+                            right: 20px;
+                            z-index: 2147483647;
+                            font-family: 'Source Sans Pro', sans-serif;
+                            font-weight: 400;
+                            font-size: 14px;
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 50%;
+                            cursor: pointer;
+                            box-shadow: -1px 2px 10px rgba(0, 0, 0, 0.28);
+                            background-color: #1b7cfb;
+                            transition: all 200ms ease-in-out;
+                            transform: none;
+                            opacity: 1;
+                        }
+                        .verloop-button strong {
+                            font-weight: 600;
+                        }
+                        .verloop-trigger-msg {
+                            direction: ltr !important;
+                            position: absolute;
+                            bottom: 0px;
+                            right: 68px;
+                            width: 280px;
+                            font-size: 0.95em;
+                            font-weight: 300;
+                            border-radius: 5px 5px 0 5px;
+                            box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+                            color: #505050;
+                            padding: 12px 18px;
+                            background-color: #fff;
+                            animation-duration: 200ms;
+                            animation-fill-mode: both;
+                            display: none;
+                            z-index: 2147483647;
+                        }
+                        .verloop-trigger-msg:after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            right: -6px;
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                            border-width: 0 9px 6px 0;
+                            border-color: transparent transparent #fff
+                        }
+                        .verloop-trigger-msg.open {
+                            animation-name: window-fade-in-up;
+                            animation-timing-function: ease-in;
+                        }
+                        .verloop-trigger-user {
+                            margin-bottom: 8px;
+                        }
+                        .verloop-trigger-name {
+                            margin-right: 3px;
+                        }
+                        .verloop-widget.opened .verloop-button, .verloop-widget.opening .verloop-button, .verloop-widget.closing .verloop-button {
+                            opacity: 0;
+                            transform: scale3d(0, 0, 0);
+                        }
+                        .verloop-livechat-logo {
+                            height: 60px;
+                            width: 60px;
+                            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAAA/NJREFUWAm9l9uLjWscx2ctQyF7a1PkQpTa7Z19obYk0oQbuRLKFcrFVi5cqP1PYB9y4UJy4QJlKCnuXZAGETU0RWqiHCOHzRx8Ps/7/tY8611rzB6t8avv+/zOh+d5D2vVusah0dHROqZ6rVYbChd0P8P/Dn4Di8GPYBp4B56CftAHbhP3nrWLmBqLeYaV/xcRZNJE8N1gC+gFz8FE9AmHa+AAWJTnCf6rK0Hd4QC/FlwGVRpCIT6XCHm44jiA/EeWr5E7dE0rzg0HeCd4D4KczEIjE8Amwhc20WmuCyzG2qjxteL/FnHp+pFrdbLMPC5ro/9l1uvwS9s2gSE/87+yoDxBpp4U6665I1IfWNjUBIqaKJX74IMiKORJryMjbkKiOBaF8yDq1RtngnIFeAWkNHmWoNB+wzXLYRPR0f5yYB/1gjCeKfN3rHj0mzXhUyMNgiVWTh0g9MBvVQGl+4EXRyF14JrlMrcvJN8Pe0wdW7ADXuNnVxpiaSEDR1q0KCr++rjdLa7o8qm2I/9U5+LzuaH0Tg5Zx6rNZHEbtOGW5Jm/fvpMQ9fScOaHS5ev9TU6LwfLgJR2JOve4jZl8SCTq6+O6OThpy01TK6qn/lCt9qCvwLJBPkONGT0Z8F6sB3cBJEkEsXk97HtBD3gOOii2eSb9aFsbukXz++gXULxmpX3cVGW/LDMKvzTea9EfqEB0if8PsBvCj9X5ItA8u6PRzDPfcsd8JPajtJuYLjFEH4TZpdON1gflbyL00uD4LoMvnNcoavFUuysPDbzRu75NjBdAxTbWUhj8iqC5tKE33xpDYh7RjnOfTH8OhX4viXGvD3KEGLTE1Boufplim4aylJnc9IKcIoER1nngT/BD8Bz1Md4d8GC/+DnM/4Q7AIbgeSNmxjWfNCXfgdOYNkN4kZS5xQG6NzSIPakj6Q6QtFQIY1dqzmU9XXnLsQEY+5wWWKLGxDnnHjsUlMMgrn000cKvuqoPXa3P5gUwWBVZ/XqfDtG4jjzFFO5hC0mbJfPPKG/1tQAU0WRSt60KwZFYIs9U+jTlDdsYzMkzQDXK20dI6DTa2XAc8jPv2sDDOR94TE9A8dA+63SMAWUPyWHmH7Ae25KdyA7c+8t/+BY7xL4G0j1KW2AKS3i5P7OmAHugb3o/TZ0sw43NeCW4NARKqe3sGTxu2AbRR+XxdNfvryBUYzjPoZmqZJFAtiMFU48RC4L+Hq2xkWwGV1/Xhxd+hYYILlOagdImAK5ROMWC2gbBIfBERuqFtfBj9FMGcht6hTdIVEvOEnhhyZtV1y9Dfgr5gF4DfIjQZyQ3ALP+Q14AuLveR+FzRff/6a/+eqDvgAdeHSpWDn94wAAAABJRU5ErkJggg==');
+                            background-size: 28px 28px;
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                        }
+                        
+                        .verloop-livechat-unread-count {
+                            position: absolute;
+                            top: -4px;
+                            left: -2px;
+                            width: 23px;
+                            height: 23px;
+                            line-height: 19px;
+                            border-radius: 50%;
+                            font-size: 13px;
+                            font-weight: bold;
+                            border-width: 2px;
+                            color: #fff;
+                            text-align: center;
+                            border-style: solid;
+                            border-color: #fff;
+                            background: #0C9735;
+                            box-sizing: border-box;
+                            display: none;
+                        }
+                        .verloop-container {
+                            height: 0px;
+                            width: 0px;
+                            position: fixed;
+                            right: 20px;
+                            bottom: 20px;
+                            display: none;
+                        }
+                        .verloop-container.visible {
+                            background: #ffffff;
+                            height: calc(100% - 150px);
+                            width: 370px;
+                            min-height: 200px;
+                            display: block;
+                            z-index: 2147483647;
+                            border-radius: 8px;
+                            overflow: hidden;
+                            box-shadow: 0 0 20px rgba(0, 0, 0, 0.28);
+                            animation-duration: 200ms;
+                            animation-fill-mode: both;
+                        }
+                        .load-frame {
+                            z-index: 10;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                        .loading { 
+                            display: flex;
+                            justify-content: center;
+                        }
+                        .loading-full-height {
+                            align-items: center;
+                            height: 100%;
+                        }
+                        .loading::after {
+                             content: "";
+                             width: 30px;
+                             height: 30px;
+                             border: 5px solid #dddddd;
+                             border-top-color: #3b5268;
+                             border-radius: 50%;
+                             animation: loading 1s ease infinite;
+                        }
+                        @keyframes loading {
+                            to {
+                                transform: rotate(1turn);
+                            }
+                        }
+                        .verloop-widget.opening .verloop-container {
+                            animation-name: window-fade-in-up;
+                            animation-timing-function: ease-in;
+                        }
+                        .verloop-widget.closing .verloop-container {
+                            animation-name: window-fade-out-down;
+                            animation-timing-function: ease-out;
+                        }
+                        #verloop-iframe {
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            background: #fff;
+                        }
+                        @keyframes window-fade-in-up {
+                        from {
+                            opacity: 0;
+                            transform: translate3d(0, 10px, 0);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: none;
+                        }
+                        }
+                        @keyframes window-fade-out-down {
+                        from {
+                            opacity: 1;
+                            transform: none;
+                        }
+                        to {
+                            opacity: 0;
+                            transform: translate3d(0, 10px, 0);
+                        }
+                        }
+                        @media only screen and (max-width: 480px) {
+                            .verloop-container.visible {
+                                height: 100%;
+                                top: 0;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                width: 100%;
+                                border-radius: 0;
+                                box-shadow: none;
+                            }
+                        }
+                        .offline-box {
+                            z-index: 100;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            font-family: Source Sans Pro,sans-serif;		
+                        }
+                        .offline-card {
+                            margin: 0;
+                            position: absolute;
+                            background-color: #fff;
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+    
+                        .offline-card-header {
+                            margin: 20px 0;
+                            font-size: 1.2em;
+                            text-align: center;
+                        }
+    
+                        .internet-icon {
+                            padding: 10px;
+                        }
+                        .offline-card-body {
+                            margin: 30px 0;
+                            text-align: center;
+                        }
+    
+                        .offline-close {
+                            position: absolute;
+                            line-height: initial;
+                            cursor: pointer;
+                            right: 5px;
+                            top: 5px;
+                            display: flex;
+                            height: 42px;
+                            width: 42px;
+                            align-items: center;
+                            justify-content: center;
+                            z-index: 1000;
+                        }
+    
+                        .offline-close > svg {
+                            fill: #000;
+                            fill-opacity: 0.65;
+                        }
+    
+                        .offline-close:hover > svg {
+                            fill-opacity: 1;
+                        }
+    
+    
+                    </style><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet"></head><body class="nykaa" cz-shortcut-listen="true"><script type="text/javascript" id="omntr" src="//assets.adobedtm.com/launch-ENfc71325a95e740318c9e1ddc9d8c0017.min.js"></script><div id="app"><div data-reactroot=""><div class="mm-container fixed-header only-search undefined"><div><!-- react-empty: 409 --><div><div></div><div class="clearfix wrapper-parent"><div class="mobile-auth-wrapper"><div class="container landing-screen"><button type="button" class="close-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><title>back/close</title><path fill="#3F414D" d="M1.319 0L0 1.319 6.681 8 0 14.681 1.319 16 8 9.319 14.681 16 16 14.681 9.319 8 16 1.319 14.681 0 8 6.681z"></path></svg></button><div class="second-fold"><h2 class="section-heading">Sign in</h2><p class="login-text login-text-border">To quickly find your favourites items, saved addresses and payments.</p><p class="login-text">Register and earn 2000 reward points</p><div class="login-giftBox"><svg xmlns="http://www.w3.org/2000/svg" width="296" height="160"><title>gift box</title><g fill="none" fill-rule="evenodd"><ellipse cx="148" cy="155.5" fill="#FFF6FA" fill-rule="nonzero" rx="148" ry="4"></ellipse><rect width="133" height="133" x="82" y="23" fill="#FFF6FA" fill-rule="nonzero" rx="66.5"></rect><path fill="#FF4A90" fill-rule="nonzero" d="M112 82h73v74h-73z"></path><path d="M112 82h73v74h-73z"></path><path stroke="#C50060" stroke-width="3.83" d="M148.2 155.5V82.57s-29.33-22.33-23.41-31.26c10.65-16 23.4 31.26 23.4 31.26s15.18-32.62 20.87-34.12c14.13-3.75 4.57 20.57-20.56 33.55"></path><path fill="#E80071" fill-rule="nonzero" d="M163 91h13v6h-13z"></path><path stroke="#C50060" stroke-linecap="square" stroke-width="3.5" d="M114.17 115.78h68.6"></path><circle cx="63" cy="31.71" r="7" fill="#E80071" fill-rule="nonzero"></circle><circle cx="232" cy="14.71" r="7" fill="#92E7E0" fill-rule="nonzero"></circle><path fill="#194476" fill-rule="nonzero" d="M149.92.71l7.79 7.81-7.79 7.81-7.78-7.8z"></path><g fill-rule="nonzero"><path fill="#E80071" d="M205 100v22h9v-17.34z"></path><path fill="#001325" d="M203 120h13v29.5a6.5 6.5 0 11-13 0 NaNvNaNz"></path></g><circle cx="218" cy="68.72" r="5" stroke="#001325"></circle><circle cx="12" cy="58.72" r="5" stroke="#001325"></circle><path fill="#3063A0" fill-rule="nonzero" d="M24 112h59v44H24z"></path><path stroke="#194476" stroke-width="3" d="M41.67 156v-44.03S19.9 97.32 29.4 97.32c9.5 0 12.27 10.21 12.27 10.21s6.67-15.56 12.44-13.3c5.78 2.25-18.56 24.14-18.56 24.14"></path><path stroke="#194476" stroke-linecap="square" stroke-width="3" d="M25.61 141.78H81.6"></path><path fill="#194476" fill-rule="nonzero" d="M55 120h13v6H55z"></path><g><path fill="#92E7E0" fill-rule="nonzero" d="M230 115h59v41h-59z"></path><path stroke="#59B7B7" stroke-linecap="square" stroke-width="3" d="M231.5 141.78h56.02"></path><path stroke="#59B7B7" stroke-width="3" d="M259.68 156v-43.3S237.9 98.28 247.4 98.28s12.28 10.04 12.28 10.04 6.66-15.32 12.43-13.1c5.78 2.22-18.55 23.74-18.55 23.74"></path><path fill="#59B7B7" fill-rule="nonzero" d="M268 120h13v6h-13z"></path></g></g></svg></div><div class="form-field-plain login-wrap"><input type="email" class="input text-center login-input" placeholder="Enter Phone Number or Email"></div><div class="social-login-wrap login-wrap-social"><div class="new-login-radius-container social"><span class="new-login-button new-login-button--google">Google</span></div></div><p class="login-note"><!-- react-text: 397 -->By continuing, you agree that you have read and accept our&nbsp;<!-- /react-text --><a href="./terms-conditions" target="_blank" title="Terms &amp; Conditions">T&amp;Cs</a><!-- react-text: 399 -->&nbsp;and&nbsp;<!-- /react-text --><a href="./privacy-policy" target="_blank" title="Privacy Policy">Privacy Policy</a><!-- react-text: 401 -->.<!-- /react-text --></p></div></div><!-- react-empty: 402 --><!-- react-empty: 403 --><!-- react-empty: 404 --><!-- react-empty: 405 --><!-- react-empty: 406 --><!-- react-empty: 407 --><!-- react-empty: 408 --></div></div></div><noscript></noscript><!-- react-empty: 81 --><noscript></noscript><!-- react-empty: 410 --><!-- react-empty: 344 --><!-- react-empty: 345 --></div><div class="mm-message-open-desktop mm-message "><div class="mm-text-container-outer text-container-desktop "><div class="mm-text-container"><div class="mm-text"><i></i><span></span></div><span></span></div></div></div></div></div></div><script type="text/javascript" src="//cdnr.nykaa.com/build/nykaa/public/desktop/desktop.f06a8d0f.js"></script><script type="text/javascript" src="//cdnr.nykaa.com/build/nykaa/public/desktop/vendor.d.a205553c.js"></script><div class="ReactModalPortal"><div data-reactroot=""></div></div><div class="ReactModalPortal"><div data-reactroot=""></div></div><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer', 'GTM-MWT2MSJ');</script><!-- End Google Tag Manager -->   <script>_satellite["_runScript1"](function(event, target, Promise) {
+    datalayer.event="";
+    });</script><script type="text/javascript" id="">var disableGamooga=google_tag_manager["GTM-MWT2MSJ"].macro(7);if(!disableGamooga){var initialTaq=window._taq||{};initialTaq={id:google_tag_manager["GTM-MWT2MSJ"].macro(8),events:[],identify:[],property:[],handlers:[]};window._taq=initialTaq};</script>
+    <script type="text/javascript" id="">var disableGamooga=google_tag_manager["GTM-MWT2MSJ"].macro(9);disableGamooga||function(b,a,c,d){b=a.getElementsByTagName(c)[0];a=a.createElement(c);a.async=!0;a.src=d;a.setAttribute("id","__ta");b.parentNode.insertBefore(a,b)}(window,document,"script","https://cdn-jp.gsecondscreen.com/static/ta.min.js");</script>
+    <script type="text/javascript" id="">function loadSDKs(){if(window.PasswordCredential&&window.FederatedCredential){var b=document.getElementsByTagName("head")[0],a=document.createElement("script");a.type="text/javascript";a.src="https://apis.google.com/js/platform.js?onload\x3dinit";b.appendChild(a)}}loadSDKs();google_tag_manager["GTM-MWT2MSJ"].macro(10)&&setTimeout(function(){if(window.NYKAA_WEB_INTERFACE&&window.NYKAA_WEB_INTERFACE.autoSignInCallback)try{window.NYKAA_WEB_INTERFACE.autoSignInCallback(!0)}catch(b){}},1E3);</script><script type="text/javascript" id="">if(!window.grecaptcha){var head=document.getElementsByTagName("head")[0],recaptchaV3Script=document.createElement("script");recaptchaV3Script.type="text/javascript";recaptchaV3Script.id="google_recaptcha_v3_api";recaptchaV3Script.src="https://www.google.com/recaptcha/api.js?render\x3d6LcFevoUAAAAACEdtUxI8JKtDeA1ssM9rrw4B0U5";head.appendChild(recaptchaV3Script)};</script><script type="text/javascript" id="">try{(function(){var c="asia.",e="0dNzxON1NDpYwWJF0FJs",f=[];f.push("pr_"+e);var g="__rtbhouse.lid",b=window.localStorage.getItem(g);if(!b){b="";for(var h="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",d=0;20>d;d++)b+=h.charAt(Math.floor(Math.random()*h.length));window.localStorage.setItem(g,b)}f.push("pr_"+e+"_lid_"+b);var a=document.createElement("iframe");e=encodeURIComponent(document.referrer?document.referrer:"");g=encodeURIComponent(document.location.href?document.location.href:
+    "");c="https://"+c+"creativecdn.com/tags?type\x3diframe";b=encodeURIComponent(""+Date.now());for(d=0;d<f.length;d++)c+="\x26id\x3d"+encodeURIComponent(f[d]);c+="\x26su\x3d"+g+"\x26sr\x3d"+e+"\x26ts\x3d"+b;a.setAttribute("src",c);a.setAttribute("width","1");a.setAttribute("height","1");a.setAttribute("scrolling","no");a.setAttribute("frameBorder","0");a.setAttribute("style","display:none");a.setAttribute("referrerpolicy","no-referrer-when-downgrade");document.body?document.body.appendChild(a):window.addEventListener("DOMContentLoaded",
+    function(){document.body.appendChild(a)})})()}catch(c){};</script><iframe src="https://asia.creativecdn.com/tags?type=iframe&amp;id=pr_0dNzxON1NDpYwWJF0FJs&amp;id=pr_0dNzxON1NDpYwWJF0FJs_lid_WQPuMcCSPlmryn7J9oCw&amp;su=https%3A%2F%2Fwww.nykaa.com%2Fauth%3Fptype%3Dauth&amp;sr=https%3A%2F%2Fwww.nykaa.com%2F&amp;ts=1635857129927" width="1" height="1" scrolling="no" frameborder="0" style="display:none" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     <script type="text/javascript" id="">var siteVisit=1;sessionStorage.siteVisit?(siteVisit+=1,sessionStorage.setItem("siteVisit",siteVisit)):sessionStorage.siteVisit||sessionStorage.setItem("siteVisit",siteVisit);</script><style>
+      .verloop-button.verloop-button {
+        display: none;
+    
+    }
+      
+    </style>
+    <script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1591183734470216");</script>
+    <noscript>
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1591183734470216&amp;ev=PageView&amp;noscript=1">
+    </noscript>
+    <script type="text/javascript" id="">if(window._taq){google_tag_manager["GTM-MWT2MSJ"].macro(12)&&window._taq.handlers.push(["ready",function(){window._taq.identify.push([[google_tag_manager["GTM-MWT2MSJ"].macro(13),google_tag_manager["GTM-MWT2MSJ"].macro(14)],function(){}])}]);var inpreference=google_tag_manager["GTM-MWT2MSJ"].macro(15);window._taq.property.push(["inpreference",google_tag_manager["GTM-MWT2MSJ"].macro(16)]);window._taq.events.push(["pass_language_to_gamooga",{inpreference:google_tag_manager["GTM-MWT2MSJ"].macro(17)}])};</script><script type="text/javascript" id="">var isMobile=google_tag_manager["GTM-MWT2MSJ"].macro(19),isBeauty=!0;
+    isMobile||(function(b,a,d,c){b.Verloop=function(e){b.Verloop._.push(e)};b.Verloop._=[];b.Verloop.url=c;c=a.getElementsByTagName(d)[0];a=a.createElement(d);a.async=!0;a.src="https://nykaa.verloop.io/livechat/script.min.js";c.parentNode.insertBefore(a,c)}(window,document,"script","https://nykaa.verloop.io/livechat"),Verloop(function(){google_tag_manager["GTM-MWT2MSJ"].macro(20)&&(isBeauty=!1);this.setUserParams({name:google_tag_manager["GTM-MWT2MSJ"].macro(21),email:google_tag_manager["GTM-MWT2MSJ"].macro(22),phone:google_tag_manager["GTM-MWT2MSJ"].macro(23),userId:google_tag_manager["GTM-MWT2MSJ"].macro(24)});
+    this.setCustomField("hash",google_tag_manager["GTM-MWT2MSJ"].macro(25),{scope:"user"});this.setCustomField("unqTxnId",google_tag_manager["GTM-MWT2MSJ"].macro(26),{scope:"user"});this.setCustomField("is_beauty",isBeauty,{scope:"user"})}));</script><script>_satellite["_runScript2"](function(event, target, Promise) {
+    var height=screen.height,width=screen.width,date=new Date;try{var days=365;date.setTime(+date+864e5*days)}catch(e){}document.cookie="d_info="+width+"_"+height+"; expires="+date.toGMTString()+"; path=/",_satellite.getVar("utmSource")&&(_satellite.setCookie("utm_source",_satellite.getVar("utmSource")),_satellite.setCookie("utm_medium",_satellite.getVar("utmMedium")),_satellite.setCookie("utm_campaign",_satellite.getVar("utmCampaign")));
+    });</script><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; position: fixed; visibility: hidden; display: block; transition: right 0.3s ease 0s; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcFevoUAAAAACEdtUxI8JKtDeA1ssM9rrw4B0U5&amp;co=aHR0cHM6Ly93d3cubnlrYWEuY29tOjQ0Mw..&amp;hl=en&amp;v=UrRmT3mBwY326qQxUfVlHu1P&amp;size=invisible&amp;cb=lgbph76xdbrs" width="256" height="60" role="presentation" name="a-ku6k8yj4b4t1" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><iframe aria-hidden="true" src="https://xds.gsecondscreen.com/xds2/" style="position: absolute; top: -999px; left: -999px;"></iframe><div data-state="start" class="verloop-widget starting"><div class="verloop-button" style="background-color: rgb(59, 82, 104);">
+                    <div class="verloop-livechat-logo"></div>
+                    <div class="verloop-livechat-unread-count">1</div>
+                </div><div>
+                    <audio id="chatTriggerAudio" preload="">
+                        <source src="https://cdn-ops.verloop.io/assets/sounds/chime.mp3" type="audio/mpeg">
+                    </audio>
+                </div></div></body></html>
