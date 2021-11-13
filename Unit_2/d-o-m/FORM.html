@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            padding:10px;
+        }
+        #form-data{
+            background-color: cadetblue;
+            padding:20px;
+        }
+        #form-data > *> *{
+           margin:10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1> My shopping Cart </h1>
+    <div id="form-data">
+        <form onsubmit="myfunction() ; return false ; " required >
+        <label >Enter the product id </label>
+        <input type="text" id="pid" placeholder="Capital letter followed by 3 digits " pattern="[A-Z][0-9]{3}"required > <br/>
+        <label >Enter the product description </label>
+        <input type="text" id="pdesc" placeholder="Enter the product Description" required>  <br/>
+        <label >Enter the product quantity</label>
+        
+        <input type="number" min=1 id="pquantity" placeholder="Enter the product Quantity" required>  <br/>
+        <label >Enter the product pruchase date </label>
+        
+        <input type="date" id="pdate" placeholder="Enter the purchase date" required>  <br/>
+        <input type="submit" value = "ADD TO CART" >
+        <input type="reset" value="CLEAR">
+    </form>
+</div>
+<br/>
+<br/>
+
+    
+   
+    <table border=1 id="form-table">
+        <tr>
+            <td>Product Id </td>
+            <td>Product Description</td>
+            <td> Quantity</td>
+            <td>Order date</td>
+        </tr>
+    </table>
+</body>
+<script >
+    function myfunction(){
+    var tbl = document.getElementById("form-table")
+    console.log(tbl)
+    var row= tbl.insertRow()
+    var cell1= row.insertCell() // we are inserting a new column under product id 
+    var cell2= row.insertCell()
+    var cell3= row.insertCell()
+    var cell4= row.insertCell()
+
+    cell1.innerHTML = document.getElementById("pid").value
+    cell2.innerHTML = document.getElementById("pdesc").value
+    cell3.innerHTML = document.getElementById("pquantity").value
+    cell4.innerHTML = document.getElementById("pdate").value
+    }  
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="name" type="text"/>
+    <button onclick="Register()">Register</button>
+</body>
+<script>
+    let queue = ["Messi", "Ronaldo", "Utkarsh","Shinchan"];
+
+    function Register() {
+        var name = document.getElementById("name").value;
+        queue.push(name);
+
+        let message = `${name} your reg successful. now go stand!`;
+
+        alert(message);
+
+        let promise = new Promise(function(resolve, reject) {
+            if(queue[0] === name) {
+                resolve(`${name} its your turn now!`);
+            }
+        });
+    }
+
+    function startVaccination() {
+        queue.shift();
+    }
+
+    startVaccination();
+</script>
+</html>

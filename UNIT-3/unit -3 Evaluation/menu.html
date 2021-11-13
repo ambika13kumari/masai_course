@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta title="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foods</title>
+   <style>
+      
+       
+
+   </style>
+</head>
+
+<link rel="stylesheet" href="style.css"/>
+<body>
+  
+    <div id="navbar"></div>
+    <p id="company">GOOD FOOD</p>
+<p class = "tag">GOOD FOOD TO EAT</p>
+    <div id="foods"></div>
+    <div id="items"></div>
+
+</body>
+</html>
+
+<script>
+ 
+var foods = document.getElementById("foods");
+    async function dd(){
+        let res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=a`)
+        let data = await res.json();
+    
+        var z = data.meals
+       console.log(z);
+        
+        appendVideo(z)
+    }
+dd()
+
+function appendVideo(App_data) {
+        foods.innerHTML = null;
+        App_data.forEach(everything => {
+
+            let items = document.createElement("div")
+            items.className += "items"
+        
+            let imag = document.createElement("div")
+            imag.className += "imag";
+
+            
+            let price = document.createElement("div");
+            price.className += "price";
+            price.innerHTML = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
+            
+
+            let title = document.createElement("p")
+            title.className += "title"
+            title.innerHTML = everything.strMeal
+
+            let AddtoCart = document.createElement("button")
+            AddtoCart.innerHTML = "Add to Cart"
+            AddtoCart.className = "CartButton"
+           
+            let picture = document.createElement("img")
+            picture.src = everything.strMealThumb
+
+            imag.append(picture)
+            items.append(picture,title,price,AddtoCart)
+                foods.append(items)
+
+
+        });
+        
+    }
+
+
+
+</script>

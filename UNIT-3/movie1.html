@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search Engine I</title>
+    <style>
+    h1{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <h1>Movie Search Engine I</h1>
+<input type ="text" id="city" placeholder="SEARCH">
+<button onclick="get_Movie()">SEARCH</button>
+
+
+
+<div id ="parent"></div>
+
+</body>
+</html>
+
+<script>
+
+
+// api key 046dcd22f8cdd84d4b0e8711b7356d7d
+
+// https://newsapi.org/v2/everything?qInTitle=${input}&apiKey=ca01bbf224de4a28995b2ab81eb472a8`
+//api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+   async function get_Movie(){
+    var me =document.getElementById("city").value
+    console.log(me);
+    let res = await fetch
+        (`http://www.omdbapi.com/?t=${me}&apikey=702d453a`)
+       let data = await res.json();
+    console.log(data.title);
+    return append(data)
+   }
+var parent = document.getElementById("parent");
+
+function append(data) {
+console.log(data);
+
+parent.innerHTML = null;
+let div = document.createElement("div");
+        
+        let img = document.createElement("img");
+        img.src = data.Poster
+
+        let title = document.createElement("p");
+        title.innerText = data.Title;
+
+        let year = document.createElement("p")
+        year.innerText = "Year :- " + data.Year;
+
+        let language = document.createElement("p");
+        language.innerText = "Language: " + data.Language
+
+        let released = document.createElement("p");
+        released.innerText = "Release Date:- " + data.Released
+        
+        let description = document.createElement("p");
+        description.innerText = "Description :-" + data.Plot;
+        
+        div.append(img,title,year,language,released,description);
+        parent.append(div) 
+}
+
+
+</script>

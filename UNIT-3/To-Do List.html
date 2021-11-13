@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0129)https://masai-course.s3.ap-south-1.amazonaws.com/users/1620/submissions/210365/384207/7e80118ea6fddb77f298d7e7adf147f5/tasks.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO List</title>
+
+    <style>
+        body {
+            display: flex;
+        }
+
+        body>* {
+            flex: 1;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        form>* {
+
+            margin-bottom: 10px;
+        }
+
+        #output>div {
+            padding: 35px;
+            margin-left: 20px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #output>div>* {
+            padding: 10px;
+            margin-right: 10px;
+
+        }
+    </style>
+</head>
+
+<body cz-shortcut-listen="true">
+    <div>
+        <form id="myform" onsubmit="load(event)">
+            <label for="name">Enter the task name</label>
+            <input type="text" id="name">
+            <label for="date">Select creation date</label>
+            <input type="date" id="date">
+
+            <select name="status" id="status">
+                <option value="FALSE" selected="">FALSE</option>
+                <option value="TRUE"> TRUE</option>
+            </select>
+
+            <input type="submit" value="add task">
+
+        </form>
+        <button id="toggle">toggle task</button>
+    </div>
+
+    <div id="output">
+
+    </div>
+    <script>
+
+        function task(n, d, s) {
+
+            this.name = n;
+            this.date = d;
+            this.status = s;
+        }
+        let dom = document.getElementById("output")
+
+        function load(e) {
+            e.preventDefault()
+            let div = document.createElement("div")
+
+            let form = document.getElementById("myform")
+
+            let name = form.name.value
+
+            let date = form.date.value
+
+            let status = form.status.value
+
+            //console.log(name , date ,status)
+
+            let form_data = new task(name, date, status)
+            //console.log(typeof form_data)
+
+            let name_d = document.createElement("p")
+            name_d.setAttribute("class" , "p_tag")
+
+            name_d.textContent = form_data.name
+
+            let date_d = document.createElement("p")
+            date_d.setAttribute("class" , "p_tag")
+            date_d.textContent = form_data.date
+
+            let status_d = document.createElement("p")
+            status_d.setAttribute("id", "out_status")
+            status_d.setAttribute("class" , "p_tag")
+            status_d.textContent = form_data["status"]
+
+            let done = document.createElement("button")
+            done.textContent = "DONE"
+            done.addEventListener("click", function(){
+                finish()
+            })
+
+            let remove = document.createElement("button")
+            remove.textContent = "REMOVE"
+            remove.addEventListener("click", function(){
+                remove_it()
+            })
+
+            div.append(name_d, date_d, status_d, done, remove)
+
+            div.style.border = "1px solid black"
+            dom.append(div)
+        }
+
+        var toggle = document.getElementById("toggle")
+        toggle.addEventListener("click", function () {
+            toggle_task()
+        })
+
+
+        function toggle_task() {
+            let status = document.getElementById("out_status").textContent
+            console.log(status)
+            if (status == "FALSE") {
+                //console.log(status)
+                document.getElementById("out_status").innerText = " TRUE "
+            }
+            else if (status == "TRUE") {
+                document.getElementById("out_status").innerText = " FALSE "
+            }
+        }
+
+        function finish() {
+            // let target = event.target.parentElement
+            // let nodes = target.childNodes
+             
+            // console.log(typeof nodes) // object nodelength = 5
+            
+            //            // let desc = target.previousElementSibling
+            // // let parent = target.parentElement
+            // console.log( nodes)
+
+            let tag = document.querySelectorAll(".p_tag")
+            console.log(tag)
+            for (let i =0 ; i<tag.length ; i++){
+                tag[i].style.textDecoration="line-through"
+                tag[i].style.color="green"
+                
+            }
+        }
+
+        function remove_it() {
+
+            event.target.parentElement.remove()
+            // let out = document.getElementById("output")  /* this will
+            // out.removeChild(event.target.parentElement)  also work */
+        }
+
+    </script>
+
+
+</body></html>

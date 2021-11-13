@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #products{
+            
+            height:800px;
+            display:grid;
+            grid-template-columns: auto auto auto ;
+            margin:5% 5%;
+        }
+        img{
+            width:50%;
+        }
+    </style>
+
+</head>
+<body>
+    <h1> WELCOME To Cart</h1>
+    <div id = "products">
+    </div>
+</body>
+<script>
+
+    var dom = document.getElementById("products")
+
+    var cart = JSON.parse(localStorage.getItem("showcart"))
+    //console.log(cart)
+
+    function display(){
+
+    cart.forEach(function(elem){
+    //console.log(elem)
+
+    var div = document.createElement("div")
+    
+    var img = document.createElement("img")
+    img.src = elem.img
+
+    var name = document.createElement("p")
+    name.textContent = elem.name
+
+    var price = document.createElement("p")
+    price.textContent = elem.price
+
+    div.append(img , name , price )
+
+    dom.append(div)
+})
+}
+display()
+
+
+</script>
+</html>

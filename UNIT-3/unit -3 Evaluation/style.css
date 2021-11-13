@@ -1,0 +1,60 @@
+#container {display:flex;justify-content: space-between;color:crimson;}
+
+#home{display:flex;justify-content: space-between;padding-left: 15%;padding-right: 15%;color:crimson;}
+
+#option {display:flex;justify-content: space-between;}
+
+p{padding-left: 30px;padding-right: 10px;color:crimson;font-size: 22px;font-weight: 700;}
+
+#navbar{padding-bottom:5%;height:40px;}
+
+#navbar:hover{background-color:rgb(233, 221, 243);}
+
+.abc{margin-top: 50%;}
+
+.category{font-size:22px;word-spacing: 5px;color:crimson;}
+
+input{width:50%;height:60px;margin-left: 15%;background-color: rgb(124, 207, 235);font-size:xx-large;}
+
+button{width:20%;margin-top:55px;height:35px;background-color: rgb(141, 106, 207);font-size:x-large;margin-left:1%;}
+
+div .other .source{font-size: 22px;letter-spacing: 0.1em;color:rgb(109, 43, 43);}
+
+
+div .link{font-size:22px;color:red;letter-spacing: 0.1em;}
+div .link:hover{font-size:24px;color:black;}
+img{width:50%;height:300px;margin-left: 20%;padding:5%;border-radius: 5%;}
+img:hover{transform: scale(1.1);}
+img:hover{background-color:none;}
+div .other{margin-left: 5%;}
+div .ima{background-color:rgba(152, 233, 86, 0.412);}
+div .ima:hover{background-color:bisque;}
+
+.cuisine{font-size:30px;word-spacing: 5px;color:sienna;}
+.cuisine:hover{font-size: 35px;letter-spacing: 0.1em;color:rgb(2, 106, 186);}
+
+div .name{background-color:whitesmoke;font-size: 52px;text-align:center;color:tomato;}
+div .name:hover{background-color:wheat;color:blue;letter-spacing:0.3em;}
+
+
+
+.category:hover{letter-spacing: 0.05em;word-spacing: 0.5em;}
+
+div .i1{font-size:25px;word-spacing: 6px;}
+div .i1:hover{font-size:26px;word-spacing:7px;color:darkgray;}
+
+div .inst{font-size:24px;word-spacing: 15px;font-weight: 400;padding-left:8%;padding-right: 8%;color:rgb(226, 40, 40)}
+
+.title{color:blue;font-size: 25px;text-align: center;}
+.price{color:red;font-size: 25px;text-align: center;color:red;font-size: 25px;text-align: center;}
+.CartButton{margin-left: 30%;color:red;font-size: 25px;text-align: center;height:70px;width:100px;margin-top : 10px;}
+/* #foods{background-color:beige;} */
+/* .picture{width:100%;height: 100px;} */
+
+.tag{text-align: center;color:hotpink;font-size: 45px;margin-top: -8%;}
+.tag:hover{text-decoration: underline;color:darkorchid;text-transform: capitalize;text-justify: inter-word;}
+#company{background-image: url("https://img.freepik.com/free-photo/assorted-indian-recipes-food-various_79295-7226.jpg?size=626&ext=jpg");}
+#company{width:100%;height: 250px;background-size: cover;text-align: center;color:rgb(68, 201, 241);font-size: 100px;letter-spacing: 0.1em;font-family: cursive;margin-top:-2%;}
+#company:hover{color:deeppink;text-transform: uppercase ;}
+.items{display:inline-block;margin-left:2%;padding:2%;}
+ .picture{width:90%;height: 100px;}

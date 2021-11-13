@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini JS Data Type</title>
+
+</head>
+<body>
+    
+    <button id="obj" > OBJECT</button>
+    <button id="arr" > ARRAY</button>
+    <button id="nul" > NULL</button>
+    <button id="func"> FUNCTION</button>
+    <button id="und" > UNDEFINED</button>
+    <button id="str" > STRINGS</button>
+    <button id="num" > NUMBERS</button>
+   
+    <div id="result">
+
+    </div>
+</body>
+
+<script>
+    var obj = document.getElementById("obj")
+    var arr = document.getElementById("arr")
+    var nul = document.getElementById("nul")
+    var func = document.getElementById("func")
+    var und = document.getElementById("und")
+    var str = document.getElementById("str")
+    var num = document.getElementById("num")
+
+    obj.addEventListener("click" , obj_func)
+    arr.addEventListener("click" , arr_func)
+    nul.addEventListener("click" , nul_func)
+    func.addEventListener("click" , func_func)
+    und.addEventListener("click" , und_func)
+    str.addEventListener("click" , str_func)
+    num.addEventListener("click" , num_func)
+
+
+    function obj_func(){
+        var p = document.createElement("p")
+        p.innerHTML = "Objects in JavaScript, just as in many other programming languages, can be compared to objects in real life. The concept of objects in JavaScript can be understood with real life, tangible objects."
+        
+        append_DOM(p)
+    }
+
+
+    function arr_func(){
+
+        var para =document.createElement("p")
+        para.innerHTML = "Arrays are list-like objects whose prototype has methods to perform traversal and mutation operations. Neither the length of a JavaScript array nor the types of its elements are fixed. Since an array's length can change at any time, and data can be stored at non-contiguous locations in the array, JavaScript arrays are not guaranteed to be dense; this depends on how the programmer chooses to use them. In general, these are convenient characteristics; but if these features are not desirable for your particular use, you might consider using typed arrays."
+        
+        para.style.border = "2px solid black"
+        para.style.backgroundColor = "yellow"
+        para.style.padding ="10px "
+        para.style.fontFamily = "Georgia, serif"
+
+        append_DOM(para)
+    }
+    function nul_func(){
+        var pr =document.createElement("p")
+        pr.innerHTML = "The value null is written with a literal: null. null is not an identifier for a property of the global object, like undefined can be. Instead, null expresses a lack of identification, indicating that a variable points to no object. In APIs, null is often retrieved in a place where an object can be expected but no object is relevant."
+
+        pr.style.border = "1px solid black"
+        pr.style.backgroundColor = "grey"
+        pr.style.padding = "10px"
+
+        append_DOM(pr)
+
+    }
+    function func_func(){
+        var p =document.createElement("p")
+        p.innerHTML = "Functions are one of the fundamental building blocks in JavaScript. A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output. To use a function, you must define it somewhere in the scope from which you wish to call it."
+
+        p.style.border = "2px solid red"
+        p.style.backgroundColor = "white"
+        p.style.padding = "10px"
+
+        append_DOM(p)
+
+    }
+    function und_func(){
+        var p =document.createElement("p")
+        p.innerHTML = "undefined is a property of the global object. That is, it is a variable in global scope. The initial value of undefined is the primitive value undefined."
+
+        p.style.border = "1px solid black"
+        p.style.backgroundColor = "green"
+        p.style.padding = "10px"
+
+        append_DOM(p)
+
+    }
+    function str_func(){
+        var p =document.createElement("p")
+        p.innerHTML = "Strings are useful for holding data that can be represented in text form. Some of the most-used operations on strings are to check their length, to build and concatenate them using the + and += string operators, checking for the existence or location of substrings with the indexOf() method, or extracting substrings with the substring() method."
+
+        p.style.border = "1px solid black"
+        p.style.backgroundColor = "pink"
+        p.style.padding = "10px"
+
+        append_DOM(p)
+
+    }
+    function num_func(){
+        var p =document.createElement("p")
+        p.innerHTML = "When used as a function, Number(value) converts a string or other value to the Number type. If the value can't be converted, it returns NaN."
+        
+        p.style.backgroundColor = "blue"
+        p.style.padding = "10px"
+
+        append_DOM(p)
+
+    }
+
+
+    function append_DOM(event){
+       
+        var result_tag = document.getElementById("result")
+        result_tag.innerHTML=""
+        result_tag.append(event)
+    }
+
+
+
+</script>
+</html>

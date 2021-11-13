@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb</title>
+    <style>
+    body{background-color:rgba(255, 192, 203, 0.145)}
+
+    div{margin-left:2.5%;padding:10%;}
+    
+    h1{text-align: center; letter-spacing: 5px;}
+
+    h1:hover{color:#e93a23;}
+
+    h2{background-color:rgb(114, 208, 241);}
+    
+    h2:hover{background-color:rgb(230, 53, 230);color:Blue;}
+    
+    p{font-weight:700;color:rgb(194, 172, 46);font-size:18px}
+      
+    p:hover{color:#fa5c07;font-size:20px;}
+
+    img{margin-left:20%;margin-top:-18%;}
+
+    img:hover{cursor:pointer;width: 55%;}
+
+    input{width:50%;height:30px;text-align:center;margin-left:3.5%;font-size:16px;font-weight:700;}
+
+    input:hover{color:blue;font-size:18px;background-color:rgb(129, 28, 45, 0.528)}
+
+    button{width:35%;height:35px;margin-left:3.5%;font-weight:700;}
+
+    button:hover{background-color:rgb(255, 187, 198, 0.755)}
+
+    </style>
+</head>
+<body>
+    <h1>IMDb Movie Ratings & Reviews</h1>
+<input type ="text" id="city" placeholder="SEARCH">
+<button onclick="get_weather()">SEARCH</button>
+
+
+
+<div id ="parent"></div>
+
+</body>
+</html>
+
+<script>
+
+
+// api key 046dcd22f8cdd84d4b0e8711b7356d7d
+
+// https://newsapi.org/v2/everything?qInTitle=${input}&apiKey=ca01bbf224de4a28995b2ab81eb472a8`
+//api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+   async function get_weather(){
+    var raj1 =document.getElementById("city").value
+    console.log(raj1);
+    let res = await fetch
+        (`http://www.omdbapi.com/?t=${raj1}&apikey=702d453a`)
+       let data = await res.json();
+    //console.log(data.Title);
+    parent.innerHTML = null;
+    if(data.Title == undefined) {
+        var div = document.createElement("div");
+        var img = document.createElement("img");
+        img.src = "https://media3.giphy.com/media/8L0Pky6C83SzkzU55a/200.gif"
+        var error = document.createElement("div");
+        error.innerHTML = ""
+        parent.append(error,img)
+    } else {return ppend(data)}
+    
+   }
+var parent = document.getElementById("parent");
+
+function ppend(data) {
+console.log(data);
+
+parent.innerHTML = null;
+let div = document.createElement("div");
+        
+        let img = document.createElement("img");
+        img.src =data.Poster
+
+        let title = document.createElement("p");
+        title.innerText = data.Title;
+
+        let year = document.createElement("p")
+        year.innerText = "Year :- " + data.Year;
+
+        let language = document.createElement("p");
+        language.innerText = "Language :- " + data.Language
+
+        let rating = document.createElement("p")
+        rating.innerText = "Rating :- " + data.imdbRating +" out of 10"
+
+        if(data.imdbRating>=8.5){
+    var high = document.createElement("h2")
+            high.innerText = "Highly Recommended"
+            console.log("abhish");
+        }else{
+        var high = document.createElement("p")
+            high.innerText = ""
+            console.log("anfjgjjg");
+        }
+
+        let released = document.createElement("p");
+        released.innerText = "Release Date :- " + data.Released;
+
+        let actors = document.createElement("p");
+        actors.innerText = "Actors :- "+ data.Actors;
+    
+        let description = document.createElement("p");
+        description.innerText = "Description :- " + data.Plot;
+
+        let type = document.createElement("p");
+        type.innerText = "Type :- "+ data.Type;
+
+        let genre = document.createElement("p");
+        genre.innerText = "Genre :- "+ data.Genre;
+
+        let writer = document.createElement("p");
+        writer.innerText = "Writer :- "+ data.Writer
+        
+        div.append(img,high,title,year,actors,language,genre,released,description,writer,type,rating);
+        parent.append(div) 
+}
+
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>custom array constructor </title>
+</head>
+
+<body>
+
+    <script>
+
+        let arr1 = new CustomArray("Value1", "Value2", "Value3", "value4")
+
+        function CustomArray() {
+
+            Object.defineProperty(this, "length", {
+                value: 0,
+                writable: true,
+                enumerable: false,
+            })
+
+            this.length = arguments.length
+            for (var i = 0; i < this.length; i++) {
+                this[i] = arguments[i]
+            }
+
+        }
+
+        CustomArray.prototype.धक्का = function (value) {
+
+
+            let index = this.length;
+            this[index] = value;
+            this.length++;
+        }
+
+        CustomArray.prototype.revrse = function () {
+            var rA = []
+            for (var i = this.length; i > 0; i--) {
+                rA.push(this[i - 1])
+            }
+
+            console.log(rA) ;
+        }
+
+        CustomArray.prototype.arr_format = function () {
+            console.log(Object.values(this))
+        }
+
+
+        CustomArray.prototype.first_element = function(){
+
+            console.log(this[0])
+        }
+
+        //PRINTING THE REVERSE OF THE ARRAY
+        arr1.revrse()
+
+        // PRINTING THE ARRAY FORMAT 
+        arr1.arr_format(arr1)
+
+        //printing the first element of the array 
+
+        arr1.first_element()
+
+        //console.log(arr1)
+
+    </script>
+</body>
+
+</html>

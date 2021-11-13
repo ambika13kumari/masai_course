@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local storage</title>
+    <style>
+        #output{
+            outline:1px solid black;
+            height:800px;
+            display:grid;
+            grid-template-columns: auto auto auto ;
+            margin:5% 5%;
+        }
+        img{
+            width:50%;
+        }
+    </style>
+    <h1> Shopping Site </h1>
+    <a href="localstorage_cart.html"> <button>GO TO CART</button> </a>
+
+</head>
+<body>
+    <div id= "output">
+
+    </div>
+
+</body>
+<script>
+
+var data = [
+    {
+        name:"Shoes" ,
+        price: 1000,
+        img:"https://m.media-amazon.com/images/I/41Leu3gBUFL.jpg"
+    },
+    {
+        name:"Watch" ,
+        price: 4000,
+        img:"https://n4.sdlcdn.com/imgs/i/z/i/HMTe-HM-9072-Metal-Analog-SDL494827480-1-db8fc.jpg"
+    },
+    {
+        name:"Bag" ,
+        price: 1500,
+        img:"https://m.media-amazon.com/images/I/71Rw9zTatDL._UL1500_.jpg"
+    },
+    {
+        name:"mobile" ,
+        price: 11000,
+        img:"https://www.thechennaimobiles.com/image/cache/catalog/OPPO/6%20PRO-600x600.jpg"
+    },
+    {
+        name:"Football" ,
+        price: 2000,
+        img:"https://m.media-amazon.com/images/I/718pvMBw6iL._SL1500_.jpg"
+    },
+    {
+        name:"TV" ,
+        price: 30000,
+        img:"https://img2.semeubler.com/5508/tv-oceanic-80-cm.jpg"
+    }
+]
+
+var dom = document.getElementById("output")
+
+function display(){
+    data.forEach(function(elem){
+    console.log(elem)
+
+    var div = document.createElement("div")
+    
+    var img = document.createElement("img")
+    img.src = elem.img
+
+    var name = document.createElement("p")
+    name.textContent = elem.name
+
+    var price = document.createElement("p")
+    price.textContent = elem.price
+
+    var btn = document.createElement("button")
+    btn.innerText = "ADD TO CART"
+
+    btn.onclick = function(){
+        addtocart(elem)
+    }
+
+    div.append(img , name , price , btn)
+
+    dom.append(div)
+})
+}
+display()
+
+var arr = []
+if (localStorage.getItem("flipkart" ) === null) {
+
+    localStorage.setItem("flipkart" , JSON.stringify(arr))
+}
+
+function addtocart( p ){
+
+    let products_cart = JSON.parse(localStorage.getItem("flipkart"))
+
+    products_cart.push(p)
+
+    localStorage.setItem("flipkart"  , JSON.stringify(products_cart))
+    console.log(products_cart)
+
+}
+</script>
+</html>
